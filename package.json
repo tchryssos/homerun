@@ -13,5 +13,8 @@
   "license": "ISC",
   "devDependencies": {
     "parcel-bundler": "^1.12.4"
+  },
+  "dependencies": {
+    "static": "^2.0.0"
   }
 }

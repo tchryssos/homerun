@@ -18,3 +18,11 @@ div {
 	width: 100%;
 	height: 100%;
 }
+
+#pitcher {
+	width: 150px;
+	height: 150px;
+	position: absolute;
+	top: 55%;
+	left: 43%;
+}
