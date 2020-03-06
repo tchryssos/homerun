@@ -20,9 +20,9 @@ div {
 }
 
 #pitcher {
-	width: 75px;
-	height: 75px;
+	width: 100px;
+	height: 100px;
 	position: absolute;
-	top: 60%;
+	top: 58%;
 	left: 45%;
 }
