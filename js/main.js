@@ -27,7 +27,6 @@ const timeout = (func, ms) => (
 const ballThrow = () => {
 	ball.style.display = 'block'
 	ball.style.animationName = 'ballThrow'
-	timeout(() => ball.style.display = 'none', 4000)
 }
 
 const pitch = async () => {
@@ -38,7 +37,10 @@ const pitch = async () => {
 		await timeout(setSvg3, frameSpeed)
 		ballThrow()
 		await timeout(setSvg1, frameSpeed)
-		await timeout(() => {}, pitchSpeed - frameSpeed)
+		await timeout(
+			() => ball.style.display = 'none', 
+			pitchSpeed - frameSpeed
+		)
 		animating = false
 		batterBox.style.display = 'block'
 	}
