@@ -38,3 +38,20 @@ div {
 	color: white;
 	cursor: pointer;
 }
+
+@keyframes ballThrow {
+	from { transform: scale(1) }
+	to { transform: scale(80) }
+}
+
+#ball {
+	height: 8px;
+	width: 8px;
+	background-color: white;
+	display: none;
+	position: absolute;
+	top: 60%;
+	left: 47%;
+	animation-duration: 4s;
+	animation-timing-function: linear;
+}
