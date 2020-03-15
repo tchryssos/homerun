@@ -1,4 +1,4 @@
-import { fps } from '/js/configConstants'
+import { fps } from '/js/config'
 
 export const timeout = (func, ms) => (
 	new Promise((resolve) => (

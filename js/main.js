@@ -2,7 +2,7 @@ import { timeout, getTargetFrameMod } from '/js/util'
 import {
 	fps, pitchSpeed, frameSpeed, hitSpeed, pitchYTarget, 
 	hitYTarget, hitXTarget, hitScaleTarget, pitchScaleTarget,
-} from '/js/configConstants'
+} from '/js/config'
 
 import pitcherSvg1 from '/static/Pitcher1.svg'
 import pitcherSvg2 from '/static/Pitcher2.svg'
