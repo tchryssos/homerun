@@ -1,10 +1,8 @@
-import { timeout, getTargetFrameMod } from '/js/util'
-
 import pitcherSvg1 from '/static/Pitcher1.svg'
 import pitcherSvg2 from '/static/Pitcher2.svg'
 import pitcherSvg3 from '/static/Pitcher3.svg'
 
-// CONFIG
+// START - CONFIG CONSTANTS - START
 const fps = 60 // @TODO Find a way to target actual refresh rate
 const pitchSpeed = 3000
 const frameSpeed = 1500
@@ -17,8 +15,10 @@ const hitXTarget = 90
 
 const pitchScaleTarget = 80
 const hitScaleTarget = 0.5
+// END - CONFIG CONSTANTS - END
 
 
+// START - STATEFUL STUFF - START
 let isAnimating = false
 let isHit = false
 let pitchTime
@@ -29,17 +29,36 @@ let hitY
 let translateX = 0
 let scale = 1
 let hitScale
+// END - STATEFUL STUFF - END
 
 
-// ELEMENTS
+// START - UTIL FUNCTIONS - START
+export const timeout = (func, ms) => (
+	new Promise((resolve) => (
+		setTimeout(() => {
+			func()
+			resolve()
+		}, ms)
+	))
+)
+
+export const getTargetFrameMod = (target, speed, mod = 1) => (
+	((target / (speed / 1000) / fps)) * mod
+)
+// END - UTIL FUNCTIONS - END
+
+
+// START - ELEMENTS - START
 const pitcher = document.getElementById('pitcher')
 const batterBox = document.getElementById('batterBox')
 const ball = document.getElementById('ball')
 const setSvg1 = () => pitcher.src = pitcherSvg1
 const setSvg2 = () => pitcher.src = pitcherSvg2
 const setSvg3 = () => pitcher.src = pitcherSvg3
+// END - ELEMENTS - END
 
-// ANIMATION FUNCTIONS
+
+// START - ANIMATION HELPERS - START
 const endPitchCycle = async () => {
 	await timeout(
 		() => ball.style.display = 'none', 
@@ -49,6 +68,26 @@ const endPitchCycle = async () => {
 	batterBox.style.display = 'block'
 }
 
+const ballVisible = () => {
+	ball.style.display = 'block'
+	ball.style.cursor = 'pointer'
+	pitchTime = Date.now()
+	pitch()
+}
+
+const homerun = () => {
+	ball.style.cursor = 'default'
+	if (!isHit) {
+		isHit = true
+		hitTime = Date.now()
+		hitY = translateY
+		hitScale = scale
+	}
+}
+// END - ANIMATION HELPERS - END
+
+
+// START - RAFS - START
 const hit = () => {
 	requestAnimationFrame(() => {
 		translateY += getTargetFrameMod(hitYTarget - hitY, hitSpeed)
@@ -76,14 +115,10 @@ const pitch = () => (
 		}
 	})
 )
+// END - RAFS - END
 
-const ballVisible = () => {
-	ball.style.display = 'block'
-	ball.style.cursor = 'pointer'
-	pitchTime = Date.now()
-	pitch()
-}
 
+// START - MAIN ANIMATION - START
 const runPitchAnimation = async () => {
 	if (isAnimating === false) {
 		isHit = false
@@ -98,21 +133,13 @@ const runPitchAnimation = async () => {
 		}
 	}
 }
+// END - MAIN ANIMATION - END
 
-const homerun = () => {
-	ball.style.cursor = 'default'
-	if (!isHit) {
-		isHit = true
-		hitTime = Date.now()
-		hitY = translateY
-		hitScale = scale
-	}
-}
 
 // LISTENERS
 batterBox.addEventListener('click', runPitchAnimation)
 ball.addEventListener('click', homerun)
 
-// START
+// RUN
 pitcher.src = pitcherSvg1
 
