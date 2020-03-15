@@ -92,7 +92,10 @@ const hit = () => {
 	requestAnimationFrame(() => {
 		translateY += getTargetFrameMod(hitYTarget - hitY, hitSpeed)
 		scale += getTargetFrameMod(hitScaleTarget - hitScale, hitSpeed)
-		ball.style.transform = `scale(${scale}) translateY(${translateY}px)`
+		translateX += getTargetFrameMod(hitXTarget, hitSpeed)
+		ball.style.transform = (
+			`scale(${scale}) translateY(${translateY}px) translateX(${translateX}px)`
+		)
 		if (Date.now() - hitTime < hitSpeed) {
 			hit()
 		}
