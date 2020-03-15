@@ -39,19 +39,12 @@ div {
 	cursor: pointer;
 }
 
-/* @keyframes ballThrow {
-	from { transform: scale(1) translateY(0) }
-	to { transform: scale(60) translateY(20px) }
-} */
-
 #ball {
 	height: 8px;
 	width: 8px;
-	background-color: red;
+	background-color: white;
 	display: none;
 	position: absolute;
 	top: 60%;
 	left: 47%;
-	animation-duration: 3s;
-	animation-timing-function: linear;
 }
