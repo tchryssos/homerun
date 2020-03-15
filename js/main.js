@@ -2,11 +2,17 @@ import pitcherSvg1 from '../static/Pitcher1.svg'
 import pitcherSvg2 from '../static/Pitcher2.svg'
 import pitcherSvg3 from '../static/Pitcher3.svg'
 
-// TIMING
+// ANIMATION & TIMING
 let animating = false
+let hit = false
+
+let translateY = 0
+const yTarget = 20
+let scale = 1
+const scaleTarget = 80
 
 // CONSTANTS
-const pitchSpeed = 4000
+const pitchSpeed = 3000
 const frameSpeed = 1500
 const pitcher = document.getElementById('pitcher')
 const batterBox = document.getElementById('batterBox')
@@ -24,30 +30,51 @@ const timeout = (func, ms) => (
 	))
 )
 
-const ballThrow = () => {
+// @TODO Find a way to target actual refresh rate
+const targetMod = target => (target / (pitchSpeed / 1000) / 60)
+
+const pitch = () => (
+	requestAnimationFrame(() => {
+		if (!hit) {
+			scale += targetMod(scaleTarget)
+			translateY += targetMod(yTarget)
+			ball.style.transform = `scale(${scale}) translateY(${translateY}px)`
+			pitch()
+		} else {
+			ball.style.display = 'none'
+		}
+	})
+)
+
+const ballVisible = () => {
 	ball.style.display = 'block'
-	ball.style.animationName = 'ballThrow'
+	ball.style.cursor = 'pointer'
+	pitch()
 }
 
-const pitch = async () => {
+const runPitchAnimation = async () => {
 	if (animating === false) {
+		hit = false
 		animating = true
 		batterBox.style.display = 'none'
 		await timeout(setSvg2, frameSpeed)
 		await timeout(setSvg3, frameSpeed)
-		ballThrow()
-		await timeout(setSvg1, frameSpeed)
+		ballVisible()
+		setTimeout(setSvg1, frameSpeed)
 		await timeout(
 			() => ball.style.display = 'none', 
-			pitchSpeed - frameSpeed
+			pitchSpeed
 		)
 		animating = false
 		batterBox.style.display = 'block'
 	}
 }
 
+const homerun = () => hit = true
+
 // LISTENERS
-batterBox.addEventListener('click', pitch)
+batterBox.addEventListener('click', runPitchAnimation)
+ball.addEventListener('click', homerun)
 
 // START
 pitcher.src = pitcherSvg1
