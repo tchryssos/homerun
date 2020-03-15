@@ -9,6 +9,6 @@ export const timeout = (func, ms) => (
 	))
 )
 
-export const getTargetFrameMod = (target, speed, fps, mod = 1) => (
+export const getTargetFrameMod = (target, speed, mod = 1) => (
 	((target / (speed / 1000) / fps)) * mod
 )
