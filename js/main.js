@@ -1,14 +1,24 @@
 import { timeout, getTargetFrameMod } from '/js/util'
-import {
-	fps, pitchSpeed, frameSpeed, hitSpeed, pitchYTarget, 
-	hitYTarget, hitXTarget, hitScaleTarget, pitchScaleTarget,
-} from '/js/config'
 
 import pitcherSvg1 from '/static/Pitcher1.svg'
 import pitcherSvg2 from '/static/Pitcher2.svg'
 import pitcherSvg3 from '/static/Pitcher3.svg'
 
 // CONFIG
+const fps = 60 // @TODO Find a way to target actual refresh rate
+const pitchSpeed = 3000
+const frameSpeed = 1500
+const hitSpeed = 3000
+
+const pitchYTarget = 20
+const hitYTarget = -300
+
+const hitXTarget = 90
+
+const pitchScaleTarget = 80
+const hitScaleTarget = 0.5
+
+
 let isAnimating = false
 let isHit = false
 let pitchTime
