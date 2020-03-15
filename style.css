@@ -47,7 +47,7 @@ div {
 #ball {
 	height: 8px;
 	width: 8px;
-	background-color: white;
+	background-color: red;
 	display: none;
 	position: absolute;
 	top: 60%;

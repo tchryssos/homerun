@@ -1,28 +1,25 @@
-import pitcherSvg1 from '../static/Pitcher1.svg'
-import pitcherSvg2 from '../static/Pitcher2.svg'
-import pitcherSvg3 from '../static/Pitcher3.svg'
+import { timeout, getTargetFrameMod } from '/js/util'
+import {
+	fps, pitchSpeed, frameSpeed, hitSpeed, pitchYTarget, 
+	hitYTarget, hitXTarget, hitScaleTarget, pitchScaleTarget,
+} from '/js/configConstants'
 
-// ANIMATION & TIMING
+import pitcherSvg1 from '/static/Pitcher1.svg'
+import pitcherSvg2 from '/static/Pitcher2.svg'
+import pitcherSvg3 from '/static/Pitcher3.svg'
+
+// CONFIG
 let isAnimating = false
 let isHit = false
 let pitchTime
-const fps = 60 // @TODO Find a way to target actual refresh rate
-const pitchSpeed = 3000
-const frameSpeed = 1500
-const hitSpeed = 6000
+let hitTime
 
 let translateY = 0
 let hitY
-const pitchYTarget = 20
-const hitYTarget = -40
-
 let translateX = 0
-const hitXTarget = 90
-
 let scale = 1
 let hitScale
-const pitchScaleTarget = 80
-const hitScaleTarget = 0.5
+
 
 // ELEMENTS
 const pitcher = document.getElementById('pitcher')
@@ -33,15 +30,6 @@ const setSvg2 = () => pitcher.src = pitcherSvg2
 const setSvg3 = () => pitcher.src = pitcherSvg3
 
 // ANIMATION FUNCTIONS
-const timeout = (func, ms) => (
-	new Promise((resolve) => (
-		setTimeout(() => {
-			func()
-			resolve()
-		}, ms)
-	))
-)
-
 const endPitchCycle = async () => {
 	await timeout(
 		() => ball.style.display = 'none', 
@@ -51,15 +39,14 @@ const endPitchCycle = async () => {
 	batterBox.style.display = 'block'
 }
 
-const targetMod = (target, speed) => (target / (pitchSpeed / 1000) / fps)
-
 const hit = () => {
 	requestAnimationFrame(() => {
-		translateY += targetMod(hitYTarget - hitY, hitSpeed)
+		translateY += getTargetFrameMod(hitYTarget - hitY, hitSpeed)
+		scale += getTargetFrameMod(hitScaleTarget - hitScale, hitSpeed)
 		ball.style.transform = `scale(${scale}) translateY(${translateY}px)`
-		hit()
-		// translateX = translateX + (hitSpeed / fps)
-		// scale = scale - (hitSpeed / fps)
+		if (Date.now() - hitTime < hitSpeed) {
+			hit()
+		}
 	})
 }
 
@@ -70,9 +57,8 @@ const pitch = () => (
 				ball.style.display = 'none'
 				return
 			}
-			scale += targetMod(pitchScaleTarget, pitchSpeed)
-			console.log(scale)
-			translateY += targetMod(pitchYTarget, pitchSpeed)
+			scale += getTargetFrameMod(pitchScaleTarget, pitchSpeed)
+			translateY += getTargetFrameMod(pitchYTarget, pitchSpeed)
 			ball.style.transform = `scale(${scale}) translateY(${translateY}px)`
 			pitch()
 		} else {
@@ -104,9 +90,13 @@ const runPitchAnimation = async () => {
 }
 
 const homerun = () => {
-	isHit = true
-	hitY = translateY
-	hitScale = scale
+	ball.style.cursor = 'default'
+	if (!isHit) {
+		isHit = true
+		hitTime = Date.now()
+		hitY = translateY
+		hitScale = scale
+	}
 }
 
 // LISTENERS
