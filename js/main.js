@@ -52,7 +52,8 @@ export const getTargetFrameMod = (target, speed, mod = 1) => (
 const pitcher = document.getElementById('pitcher')
 const batterBox = document.getElementById('batterBox')
 const ball = document.getElementById('ball')
-const strike = document.getElementById('strike')
+const strike = 'strike'
+const textBox = document.getElementById('text-box')
 const setSvg1 = () => pitcher.src = pitcherSvg1
 const setSvg2 = () => pitcher.src = pitcherSvg2
 const setSvg3 = () => pitcher.src = pitcherSvg3
@@ -88,6 +89,16 @@ const homerun = () => {
 		hitScale = scale
 	}
 }
+
+const toggleText = (childId, bool) => {
+	const el = document.getElementById(childId)
+	const bgColor = bool ? 'rgba(0, 0, 0, 0.7' : 'transparent'
+	const elDisplay = bool ? 'block' : 'none'
+
+	textBox.style.backgroundColor = bgColor
+	el.style.display = elDisplay
+} 
+
 // END - ANIMATION HELPERS - END
 
 
@@ -137,9 +148,9 @@ const runPitchAnimation = async () => {
 		setTimeout(() => {
 			setSvg1()
 			if (!isHit) {
-				strike.style.display = 'block'
+				toggleText(strike, true)
 				endPitchCycle()
-				setTimeout(() => strike.style.display = 'none', 2000)
+				setTimeout(() => toggleText(strike, false), 2000)
 			}
 		}, frameSpeed)
 	}
