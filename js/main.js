@@ -1,6 +1,7 @@
 import pitcherSvg1 from '/static/Pitcher1.svg'
 import pitcherSvg2 from '/static/Pitcher2.svg'
 import pitcherSvg3 from '/static/Pitcher3.svg'
+import strikeMp3 from '/static/strike.mp3'
 
 // START - CONFIG CONSTANTS - START
 const fps = 60 // @TODO Find a way to target actual refresh rate
@@ -57,6 +58,7 @@ const textBox = document.getElementById('text-box')
 const setSvg1 = () => pitcher.src = pitcherSvg1
 const setSvg2 = () => pitcher.src = pitcherSvg2
 const setSvg3 = () => pitcher.src = pitcherSvg3
+const strikeAudio = new Audio(strikeMp3)
 // END - ELEMENTS - END
 
 
@@ -149,8 +151,13 @@ const runPitchAnimation = async () => {
 			setSvg1()
 			if (!isHit) {
 				toggleText(strike, true)
+				strikeAudio.play()
 				endPitchCycle()
-				setTimeout(() => toggleText(strike, false), 2000)
+				setTimeout(() => {
+					toggleText(strike, false)
+					strikeAudio.pause()
+					strikeAudio.currentTime = 0
+				}, 2000)
 			}
 		}, frameSpeed)
 	}
