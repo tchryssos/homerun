@@ -1,10 +1,9 @@
 {
-  "name": "parcel-template",
+  "name": "homerun",
   "version": "1.0.0",
-  "description": "A basic parcel project",
+  "description": "a strange baseball game",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "parcel index.html",
     "build": "parcel build index.html"
   },
@@ -12,8 +11,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.8.7",
-    "@babel/plugin-transform-runtime": "^7.8.3",
+    "@babel/core": "^7.11.0",
+    "@babel/plugin-transform-runtime": "^7.11.0",
     "parcel-bundler": "^1.12.4"
   },
   "dependencies": {}
