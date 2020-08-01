@@ -52,6 +52,7 @@ export const getTargetFrameMod = (target, speed, mod = 1) => (
 const pitcher = document.getElementById('pitcher')
 const batterBox = document.getElementById('batterBox')
 const ball = document.getElementById('ball')
+const strike = document.getElementById('strike')
 const setSvg1 = () => pitcher.src = pitcherSvg1
 const setSvg2 = () => pitcher.src = pitcherSvg2
 const setSvg3 = () => pitcher.src = pitcherSvg3
@@ -66,6 +67,9 @@ const endPitchCycle = async () => {
 	)
 	isAnimating = false
 	batterBox.style.display = 'block'
+	translateY = 0
+	translateX = 0
+	scale = 1
 }
 
 const ballVisible = () => {
@@ -130,10 +134,14 @@ const runPitchAnimation = async () => {
 		await timeout(setSvg2, frameSpeed)
 		await timeout(setSvg3, frameSpeed)
 		ballVisible()
-		setTimeout(setSvg1, frameSpeed)
-		if (!hit) {
-			endPitchCycle()
-		}
+		setTimeout(() => {
+			setSvg1()
+			if (!isHit) {
+				strike.style.display = 'block'
+				endPitchCycle()
+				setTimeout(() => strike.style.display = 'none', 2000)
+			}
+		}, frameSpeed)
 	}
 }
 // END - MAIN ANIMATION - END
