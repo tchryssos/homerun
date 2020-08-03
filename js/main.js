@@ -30,6 +30,7 @@ let hitY
 let translateX = 0
 let scale = 1
 let hitScale
+let strikeCount = 0
 // END - STATEFUL STUFF - END
 
 
@@ -167,6 +168,7 @@ const runPitchAnimation = async () => {
 					strikeAudio.pause()
 					strikeAudio.currentTime = 0
 				}, 2000)
+				strikeCount += 1
 			}
 		}, frameSpeed)
 	}
