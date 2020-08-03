@@ -9,33 +9,41 @@ import {
 	ball, batterBox, homerunAudio, homerunId, textBox,
 } from '/js/elements'
 
+import {
+	isAnimating, setIsAnimating, translateY, setTranslateY, scale,
+	setScale, translateX, setTranslateX, pitchTime, setPitchTime,
+	isHit, setIsHit, hitScale, strikeCount, setStrikeCount,
+	hitTime, hitY,
+} from '/js/state'
+import { setHitTime, setHitY, setHitScale } from './state'
+
 // START - ANIMATION HELPERS - START
 const endPitchCycle = async () => {
 	await timeout(
 		() => ball.style.display = 'none', 
 		pitchSpeed
 	)
-	isAnimating = false
+	setIsAnimating(false)
 	batterBox.style.display = 'block'
-	translateY = 0
-	translateX = 0
-	scale = 1
+	setTranslateY(0)
+	setTranslateX(0)
+	setScale(1)
 }
 
 const ballVisible = () => {
 	ball.style.display = 'block'
 	ball.style.cursor = 'pointer'
-	pitchTime = Date.now()
+	setPitchTime(Date.now())
 	pitch()
 }
 
 const homerun = () => {
 	ball.style.cursor = 'default'
 	if (!isHit) {
-		isHit = true
-		hitTime = Date.now()
-		hitY = translateY
-		hitScale = scale
+		setIsHit(true)
+		setHitTime(Date.now())
+		setHitY(translateY)
+		setHitScale(scale)
 		toggleText(homerunId, true)
 		homerunAudio.voice = speechSynthesis.getVoices()[48]
 		speechSynthesis.speak(homerunAudio)
@@ -93,8 +101,8 @@ const pitch = () => (
 // START - MAIN ANIMATION - START
 export const runPitchAnimation = async () => {
 	if (isAnimating === false) {
-		isHit = false
-		isAnimating = true
+		setIsHit(false)
+		setIsAnimating(true)
 		batterBox.style.display = 'none'
 		await timeout(setSvg2, frameSpeed)
 		await timeout(setSvg3, frameSpeed)
@@ -110,7 +118,7 @@ export const runPitchAnimation = async () => {
 					strikeAudio.pause()
 					strikeAudio.currentTime = 0
 				}, 2000)
-				strikeCount += 1
+				setStrikeCount(strikeCount + 1)
 			}
 		}, frameSpeed)
 	}
