@@ -56,7 +56,7 @@ div {
 	height: 100%;
 }
 
-#strike {
+.toggle-text {
 	display: none;
 	padding: 8px;
 	border: 5px solid red;

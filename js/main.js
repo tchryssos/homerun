@@ -54,11 +54,15 @@ const pitcher = document.getElementById('pitcher')
 const batterBox = document.getElementById('batterBox')
 const ball = document.getElementById('ball')
 const strike = 'strike'
+const homerunId = 'homerun'
 const textBox = document.getElementById('text-box')
 const setSvg1 = () => pitcher.src = pitcherSvg1
 const setSvg2 = () => pitcher.src = pitcherSvg2
 const setSvg3 = () => pitcher.src = pitcherSvg3
+
 const strikeAudio = new Audio(strikeMp3)
+const homerunAudio = new SpeechSynthesisUtterance('Wow! Homerun!')
+homerunAudio.voice = speechSynthesis.getVoices()[48]
 // END - ELEMENTS - END
 
 
@@ -89,6 +93,11 @@ const homerun = () => {
 		hitTime = Date.now()
 		hitY = translateY
 		hitScale = scale
+		toggleText(homerunId, true)
+		homerunAudio.voice = speechSynthesis.getVoices()[48]
+		speechSynthesis.speak(homerunAudio)
+		timeout(() => toggleText(homerunId, false), hitSpeed)
+		endPitchCycle()
 	}
 }
 
