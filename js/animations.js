@@ -6,7 +6,7 @@ import {
 import { timeout, getTargetFrameMod } from '/js/util'
 
 import {
-	ball, batterBox, homerunAudio, homerunId, textBox,
+	ball, batterBox, homerunId, textBox,
 	setSvg2, setSvg3, setSvg1, strike,
 } from '/js/elements'
 
@@ -19,7 +19,7 @@ import {
 
 import { setHitTime, setHitY, setHitScale } from '/js/state'
 
-import { strikeAudio } from '/js/audio'
+import { strikeAudio, speakHomerun } from '/js/audio'
 
 // START - ANIMATION HELPERS - START
 const endPitchCycle = async () => {
@@ -41,7 +41,7 @@ const ballVisible = () => {
 	pitch()
 }
 
-const homerun = () => {
+export const homerun = () => {
 	ball.style.cursor = 'default'
 	if (!isHit) {
 		setIsHit(true)
@@ -49,8 +49,7 @@ const homerun = () => {
 		setHitY(translateY)
 		setHitScale(scale)
 		toggleText(homerunId, true)
-		homerunAudio.voice = speechSynthesis.getVoices()[48]
-		speechSynthesis.speak(homerunAudio)
+		speakHomerun()
 		timeout(() => toggleText(homerunId, false), hitSpeed)
 		endPitchCycle()
 	}
