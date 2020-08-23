@@ -7,6 +7,7 @@ import { timeout, getTargetFrameMod } from '/js/util'
 
 import {
 	ball, batterBox, homerunAudio, homerunId, textBox,
+	setSvg2, setSvg3, setSvg1, strike,
 } from '/js/elements'
 
 import {
@@ -15,7 +16,10 @@ import {
 	isHit, setIsHit, hitScale, strikeCount, setStrikeCount,
 	hitTime, hitY,
 } from '/js/state'
-import { setHitTime, setHitY, setHitScale } from './state'
+
+import { setHitTime, setHitY, setHitScale } from '/js/state'
+
+import { strikeAudio } from '/js/audio'
 
 // START - ANIMATION HELPERS - START
 const endPitchCycle = async () => {
@@ -67,9 +71,9 @@ const toggleText = (childId, bool) => {
 // START - RAFS - START
 const hit = () => {
 	requestAnimationFrame(() => {
-		translateY += getTargetFrameMod(hitYTarget - hitY, hitSpeed)
-		scale += getTargetFrameMod(hitScaleTarget - hitScale, hitSpeed)
-		translateX += getTargetFrameMod(hitXTarget, hitSpeed)
+		setTranslateY(translateY + getTargetFrameMod(hitYTarget - hitY, hitSpeed))
+		setScale(scale + getTargetFrameMod(hitScaleTarget - hitScale, hitSpeed))
+		setTranslateX(translateX + getTargetFrameMod(hitXTarget, hitSpeed))
 		ball.style.transform = (
 			`scale(${scale}) translateY(${translateY}px) translateX(${translateX}px)`
 		)
@@ -86,8 +90,8 @@ const pitch = () => (
 				ball.style.display = 'none'
 				return
 			}
-			scale += getTargetFrameMod(pitchScaleTarget, pitchSpeed)
-			translateY += getTargetFrameMod(pitchYTarget, pitchSpeed)
+			setScale(scale + getTargetFrameMod(pitchScaleTarget, pitchSpeed))
+			setTranslateY(translateY + getTargetFrameMod(pitchYTarget, pitchSpeed))
 			ball.style.transform = `scale(${scale}) translateY(${translateY}px)`
 			pitch()
 		} else {

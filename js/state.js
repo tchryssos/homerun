@@ -1,6 +1,8 @@
 // START - STATEFUL STUFF - START
 export let isAnimating = false
 export const setIsAnimating = (bool) => isAnimating = bool
+export const getIsAnimating = () => isAnimating
+
 export let isHit = false
 export const setIsHit = (bool) => isHit = bool
 export let pitchTime
