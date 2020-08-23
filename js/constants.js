@@ -12,3 +12,17 @@ export const hitXTarget = 90
 export const pitchScaleTarget = 80
 export const hitScaleTarget = 0.5
 // END - CONFIG CONSTANTS - END
+
+// START - TEAM CONSTANTS - START
+export const cityNames = [
+	'Hangrelle', 'Oberome', 'Balbonton', 'Ointipe', 'Ralm',
+	'Yantice', 'Qualmmrock', 'Bont', 'Wailville', 'Contbilshire',
+	'Peempont', 'Zerti', 'Glomberry', 'Frautler', 'Lillirat',
+]
+
+export const teamNames = [
+	'Ghouls', 'Shapes', 'December 12th', 'Yam', 'Rocks',
+	'Oil Barrels', 'Grime', 'Gloves', 'Bugs', 'Man',
+	'School Teachers', 'Worms', 'Nails', 'Fast Cars', 'Popcorns',
+]
+// END - TEAM CONSTANTS - END
