@@ -11,6 +11,11 @@ div {
 	box-sizing: border-box;
 }
 
+p {
+	padding: 0;
+	margin: 0;
+}
+
 /* START - ANIMATIONS - START */
 @keyframes strobe {
 	from { opacity: 100%; }
@@ -30,7 +35,6 @@ div {
 }
 
 #scoreboard {
-	
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -40,6 +44,15 @@ div {
 
 .white-border {
 	border: 5px solid white;
+}
+
+.scoreboard-row {
+	padding: 8px;
+	border-bottom: 5px solid white;
+}
+
+.scoreboard-row:last-child {
+	border-bottom: none;
 }
 
 #pitcher {
