@@ -4,7 +4,7 @@ import pitcherSvg3 from '/static/Pitcher3.svg'
 
 // START - ELEMENTS - START
 export const pitcher = document.getElementById('pitcher')
-export const batterBox = document.getElementById('batterBox')
+export const batterBox = document.getElementById('batter-box')
 export const ball = document.getElementById('ball')
 export const strike = 'strike'
 export const homerunId = 'homerun'

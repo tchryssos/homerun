@@ -19,7 +19,7 @@ div {
 #canvas {
 	width: 100%;
 	height: 100%;
-	display: relative,
+	position: relative;
 }
 
 #stadium {
@@ -35,16 +35,19 @@ div {
 	left: 45%;
 }
 
-#batterBox {
+#batter-box-wrapper {
 	position: absolute;
 	bottom: 0;
 	left: 0;
+	z-index: 2;
+}
+
+#batter-box {
 	border: 5px solid white;
 	padding: 4px;
 	font-size: 48px;
 	color: white;
 	cursor: pointer;
-	z-index: 2;
 }
 
 #text-box {
@@ -80,4 +83,52 @@ div {
 	top: 60%;
 	left: 47%;
 	z-index: 2;
+}
+
+@media only screen and (max-width: 600px) {
+	#canvas {
+		display: flex;
+		justify-content: center;
+	}
+
+	#batter-box-wrapper {
+		display: flex;
+		width: 100%;
+		justify-content: center;
+	}
+
+	#batter-box {
+		width: 75%;
+		text-align: center;
+	}
+}
+
+@media only screen and (max-width: 460px) {
+	#batter-box-wrapper {
+		bottom: 12px;
+	}
+
+	#batter-box {
+		font-size: 32px;
+	}
+
+	#pitcher {
+		top: 52%;
+		left: 40%;
+	}
+}
+
+@media only screen and (max-height: 640px) {
+	#batter-box-wrapper {
+		bottom: 12px;
+	}
+
+	#batter-box {
+		font-size: 32px;
+	}
+
+	#pitcher {
+		top: 52%;
+		left: 40%;
+	}
 }

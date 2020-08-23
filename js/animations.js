@@ -2,23 +2,18 @@ import {
 	pitchSpeed, frameSpeed, hitSpeed, pitchYTarget,
 	hitYTarget, hitXTarget, pitchScaleTarget, hitScaleTarget,
 } from '/js/constants'
-
 import { timeout, getTargetFrameMod } from '/js/util'
-
 import {
 	ball, batterBox, homerunId, textBox,
 	setSvg2, setSvg3, setSvg1, strike,
 } from '/js/elements'
-
 import {
 	isAnimating, setIsAnimating, translateY, setTranslateY, scale,
 	setScale, translateX, setTranslateX, pitchTime, setPitchTime,
 	isHit, setIsHit, hitScale, strikeCount, setStrikeCount,
 	hitTime, hitY,
 } from '/js/state'
-
 import { setHitTime, setHitY, setHitScale } from '/js/state'
-
 import { strikeAudio, speakHomerun } from '/js/audio'
 
 // START - ANIMATION HELPERS - START
@@ -76,7 +71,7 @@ const hit = () => {
 		ball.style.transform = (
 			`scale(${scale}) translateY(${translateY}px) translateX(${translateX}px)`
 		)
-		if (Date.now() - hitTime < hitSpeed) {
+		if ((Date.now() - hitTime) < hitSpeed) {
 			hit()
 		}
 	})
@@ -85,7 +80,7 @@ const hit = () => {
 const pitch = () => (
 	requestAnimationFrame(() => {
 		if (!isHit) {
-			if (Date.now() - pitchTime >= pitchSpeed) {
+			if ((Date.now() - pitchTime) >= pitchSpeed) {
 				ball.style.display = 'none'
 				return
 			}
