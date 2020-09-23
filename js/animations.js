@@ -53,7 +53,7 @@ export const homerun = () => {
 		timeout(() => toggleText(homerunId, false), hitSpeed)
 		const newScore = currentScoreVal + 1
 		setCurrentScoreVal(newScore)
-		lastScore.textContet = `${newScore}`
+		setTimeout(() => lastScore.textContent = `${newScore}`, hitSpeed)
 		endPitchCycle()
 	}
 }

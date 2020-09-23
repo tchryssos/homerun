@@ -34,7 +34,7 @@ export const teamNames = [
 // END - TEAM CONSTANTS - END
 
 // START - PLAYER CONSTANTS - START
-export const rosterTemplate = [ // Based on 1990 NYM roster
+export const rosterTemplate = [ // The 1990 NYM roster
 	'Kevin Brown',
 	'David Cone',
 	'Ron Darling',
