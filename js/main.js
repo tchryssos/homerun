@@ -7,7 +7,8 @@ import {
 	scores, bat,
 } from '/js/elements'
 import { teamNames, rosterTemplate } from '/js/constants'
-import { getRandomItem, getCityName, buildRoster } from '/js/util'
+import { getRandomItem } from '/js/util'
+import { getCityName, buildRoster } from '/js/teams'
 import { setCurrentScoreVal } from '/js/state'
 
 // LISTENERS
