@@ -40,12 +40,15 @@ p {
 	left: 0;
 	display: flex;
 	border-right: none;
+	background-color: black;
+	color: white;
 }
 
 .scoreboard-column {
 	display: flex;
 	flex-direction: column;
 	border-right: 5px solid white;
+	min-width: 2rem;
 }
 
 .white-border {
@@ -58,6 +61,7 @@ p {
 	font-size: 12px;
 	display: flex;
 	align-items: center;
+	min-height: 2rem;
 }
 
 .scoreboard-row:last-child {

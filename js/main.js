@@ -6,8 +6,9 @@ import {
 	batterBox, ball, pitcher, teamOneTag, teamTwoTag,
 	scores, bat,
 } from '/js/elements'
-import { teamNames, cityNames } from '/js/constants'
+import { teamNames, cityNames, citySuffix } from '/js/constants'
 import { getRandomItem } from '/js/util'
+import { setCurrentScoreVal } from '/js/state'
 
 // LISTENERS
 batterBox.addEventListener('click', runPitchAnimation)
@@ -23,10 +24,23 @@ if (window.innerWidth >= 600) {
 // SETUP
 const teamNameOne = getRandomItem(teamNames)
 const teamNameTwo = getRandomItem(teamNames.filter(n => n !== teamNameOne))
-const cityNameOne = getRandomItem(cityNames)
-const cityNameTwo = getRandomItem(cityNames.filter(n => n !== cityNameOne))
+let prevCity = ''
+const getCityName = () => {
+	const city = getRandomItem(cityNames.filter(n => n !== prevCity))
+	prevCity = city
+	const suffix = Math.round(Math.random()) ? getRandomItem(citySuffix) : ''
+	return `${city}${suffix}`
+}
+const cityNameOne = getCityName()
+const cityNameTwo = getCityName()
 scores.forEach(
-	el => el.textContent = Math.round(Math.random() * 10)
+	(el, i) => {
+		const rNum = Math.round(Math.random() * 10)
+		el.textContent = rNum
+		if (i === scores.length - 1) {
+			setCurrentScoreVal(rNum)
+		}
+	}
 )
 const teamOneString = `${cityNameOne} ${teamNameOne}`
 const teamTwoString = `${cityNameTwo} ${teamNameTwo}`

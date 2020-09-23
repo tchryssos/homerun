@@ -4,8 +4,8 @@ import {
 } from '/js/constants'
 import { timeout, getTargetFrameMod } from '/js/util'
 import {
-	ball, batterBox, homerunId, textBox,
-	setSvg2, setSvg3, setSvg1, strike,
+	ball, batterBox, homerunId, textBox, setSvg2,
+	setSvg3, setSvg1, strike, lastScore,
 } from '/js/elements'
 import {
 	isAnimating, setIsAnimating, translateY, setTranslateY, scale,
@@ -13,7 +13,9 @@ import {
 	isHit, setIsHit, hitScale, strikeCount, setStrikeCount,
 	hitTime, hitY,
 } from '/js/state'
-import { setHitTime, setHitY, setHitScale } from '/js/state'
+import {
+	setHitTime, setHitY, setHitScale, currentScoreVal, setCurrentScoreVal,
+} from '/js/state'
 import { strikeAudio, speakHomerun, hitAudio, crowdAudio } from '/js/audio'
 
 let initialPitch = true
@@ -49,6 +51,9 @@ export const homerun = () => {
 		toggleText(homerunId, true)
 		setTimeout(() => speakHomerun(), 300)
 		timeout(() => toggleText(homerunId, false), hitSpeed)
+		const newScore = currentScoreVal + 1
+		setCurrentScoreVal(newScore)
+		lastScore.textContet = `${newScore}`
 		endPitchCycle()
 	}
 }

@@ -10,6 +10,7 @@ export const bat = document.getElementById('bat')
 export const teamOneTag = document.getElementById('team-one')
 export const teamTwoTag = document.getElementById('team-two')
 export const scores = Array.from(document.querySelectorAll('.score'))
+export const lastScore = scores[scores.length - 1]
 export const strike = 'strike'
 export const homerunId = 'homerun'
 export const textBox = document.getElementById('text-box')

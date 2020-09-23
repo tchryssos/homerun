@@ -15,9 +15,15 @@ export const hitScaleTarget = 0.5
 
 // START - TEAM CONSTANTS - START
 export const cityNames = [
-	'Hangrelle', 'Oberome', 'Balbonton', 'Ointipe', 'Ralm',
-	'Yantice', 'Qualmmrock', 'Bont', 'Wailville', 'Contbilshire',
-	'Peempont', 'Zerti', 'Glomberry', 'Frautler', 'Lillirat',
+	'Hangrell', 'Oberome', 'Balbon', 'Ointipe', 'Ralm',
+	'Yantice', 'Qualmmrock', 'Bont', 'Wail', 'Contbil',
+	'Peempont', 'Zerti', 'Glom', 'Frautler', 'Lillirat',
+]
+
+export const citySuffix = [
+	' City', 'shire', 'berg', ' Center', ' Angeles',
+	' Village', ' (Cuidad de)', 'ton', ' Crater', '-to',
+	'ville', ' District', 'berry', ' Circle',' 10',
 ]
 
 export const teamNames = [

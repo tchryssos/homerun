@@ -22,4 +22,7 @@ export let hitScale
 export const setHitScale = (num) => hitScale = num
 export let strikeCount = 0
 export const setStrikeCount = (num) => strikeCount = num
+
+export let currentScoreVal = 0
+export const setCurrentScoreVal = (num) => currentScoreVal = num
 // END - STATEFUL STUFF - END
