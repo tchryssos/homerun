@@ -1,7 +1,10 @@
 import pitcherSvg1 from '/static/Pitcher1.svg'
 
 import { runPitchAnimation, homerun } from '/js/animations'
-import { batterBox, ball, pitcher, teamOneTag, teamTwoTag } from '/js/elements'
+import {
+	batterBox, ball, pitcher, teamOneTag, teamTwoTag,
+	scores,
+} from '/js/elements'
 import { teamNames, cityNames } from '/js/constants'
 import { getRandomItem } from '/js/util'
 
@@ -14,7 +17,9 @@ const teamNameOne = getRandomItem(teamNames)
 const teamNameTwo = getRandomItem(teamNames.filter(n => n !== teamNameOne))
 const cityNameOne = getRandomItem(cityNames)
 const cityNameTwo = getRandomItem(cityNames.filter(n => n !== cityNameOne))
-
+scores.forEach(
+	el => el.textContent = Math.round(Math.random() * 10)
+)
 const teamOneString = `${cityNameOne} ${teamNameOne}`
 const teamTwoString = `${cityNameTwo} ${teamNameTwo}`
 teamOneTag.textContent = teamOneString

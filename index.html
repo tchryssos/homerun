@@ -10,24 +10,142 @@
 </head>
 <body>
 	<div id="canvas">
+
+		<!-- START - SCOREBOARD - START -->
 		<div id="scoreboard" class="white-border">
-			<div class="scoreboard-row">
-				<p>TEAM</p>
+			<!-- START - TEAM COLUMN - START -->
+			<div class="scoreboard-column">
+				<div class="scoreboard-row">
+					<p>TEAM</p>
+				</div>
+				<div class="scoreboard-row">
+					<p id="team-one"></p>
+				</div>
+				<div class="scoreboard-row">
+					<p id="team-two"></p>
+				</div>
 			</div>
-			<div class="scoreboard-row">
-				<p id="team-one"></p>
+			<!-- END - TEAM COLUMN - END -->
+
+			<!-- START - INNINGS - START -->
+			<div class="scoreboard-column">
+				<div class="scoreboard-row">
+					<p>1</p>
+				</div>
+				<div class="scoreboard-row">
+					<p class="score"></p>
+				</div>
+				<div class="scoreboard-row">
+					<p class="score"></p>
+				</div>
 			</div>
-			<div class="scoreboard-row">
-				<p id="team-two"></p>
+			<div class="scoreboard-column">
+				<div class="scoreboard-row">
+					<p>2</p>
+				</div>
+				<div class="scoreboard-row">
+					<p class="score"></p>
+				</div>
+				<div class="scoreboard-row">
+					<p class="score"></p>
+				</div>
 			</div>
+			<div class="scoreboard-column">
+				<div class="scoreboard-row">
+					<p>3</p>
+				</div>
+				<div class="scoreboard-row">
+					<p class="score"></p>
+				</div>
+				<div class="scoreboard-row">
+					<p class="score"></p>
+				</div>
+			</div>
+			<div class="scoreboard-column">
+				<div class="scoreboard-row">
+					<p>4</p>
+				</div>
+				<div class="scoreboard-row">
+					<p class="score"></p>
+				</div>
+				<div class="scoreboard-row">
+					<p class="score"></p>
+				</div>
+			</div>
+			<div class="scoreboard-column">
+				<div class="scoreboard-row">
+					<p>5</p>
+				</div>
+				<div class="scoreboard-row">
+					<p class="score"></p>
+				</div>
+				<div class="scoreboard-row">
+					<p class="score"></p>
+				</div>
+			</div>
+			<div class="scoreboard-column">
+				<div class="scoreboard-row">
+					<p>6</p>
+				</div>
+				<div class="scoreboard-row">
+					<p class="score"></p>
+				</div>
+				<div class="scoreboard-row">
+					<p class="score"></p>
+				</div>
+			</div>
+			<div class="scoreboard-column">
+				<div class="scoreboard-row">
+					<p>7</p>
+				</div>
+				<div class="scoreboard-row">
+					<p class="score"></p>
+				</div>
+				<div class="scoreboard-row">
+					<p class="score"></p>
+				</div>
+			</div>
+			<div class="scoreboard-column">
+				<div class="scoreboard-row">
+					<p>8</p>
+				</div>
+				<div class="scoreboard-row">
+					<p class="score"></p>
+				</div>
+				<div class="scoreboard-row">
+					<p class="score"></p>
+				</div>
+			</div>
+			<div class="scoreboard-column">
+				<div class="scoreboard-row">
+					<p>9</p>
+				</div>
+				<div class="scoreboard-row">
+					<p class="score"></p>
+				</div>
+				<div class="scoreboard-row">
+					<p id="batter-score" class="score"></p>
+				</div>
+			</div>
+			<!-- END - INNINGS - END -->
+
 		</div>
+		<!-- END - SCOREBOARD - END -->
+	
+		<!-- START - PITCHER - START -->
 		<img id="pitcher" />
 		<div id="ball"></div>
+		<!-- END - PITCHER - END -->
+
+		<!-- START - BATTER BOX - START -->
 		<div id="batter-box-wrapper">
 			<div id="batter-box" class="white-border">
 				<p>Batter Up !!</p>
 			</div>
 		</div>
+		<!-- END - BATTER BOX - END -->
+
+		<!-- START - TEXT BOX - START -->
 		<div id="text-box">
 			<div id="strike" class="toggle-text">
 				<p>STRIKE !!</p>
@@ -36,7 +154,7 @@
 				<p>WOW !! HOMERUN !!</p>
 			</div>
 		</div>
-		
+		<!-- END - SCOREABOARD - END -->
 
 		<img src="static/stadium.jpg" id="stadium" />
 	</div>

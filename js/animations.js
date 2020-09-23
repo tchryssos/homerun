@@ -14,7 +14,9 @@ import {
 	hitTime, hitY,
 } from '/js/state'
 import { setHitTime, setHitY, setHitScale } from '/js/state'
-import { strikeAudio, speakHomerun } from '/js/audio'
+import { strikeAudio, speakHomerun, hitAudio, crowdAudio } from '/js/audio'
+
+let initialPitch = true
 
 // START - ANIMATION HELPERS - START
 const endPitchCycle = async () => {
@@ -39,12 +41,13 @@ const ballVisible = () => {
 export const homerun = () => {
 	ball.style.cursor = 'default'
 	if (!isHit) {
+		hitAudio.play()
 		setIsHit(true)
 		setHitTime(Date.now())
 		setHitY(translateY)
 		setHitScale(scale)
 		toggleText(homerunId, true)
-		speakHomerun()
+		setTimeout(() => speakHomerun(), 300)
 		timeout(() => toggleText(homerunId, false), hitSpeed)
 		endPitchCycle()
 	}
@@ -98,6 +101,9 @@ const pitch = () => (
 
 // START - MAIN ANIMATION - START
 export const runPitchAnimation = async () => {
+	if (initialPitch) {
+		crowdAudio.play()
+	}
 	if (isAnimating === false) {
 		setIsHit(false)
 		setIsAnimating(true)

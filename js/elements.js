@@ -8,6 +8,7 @@ export const batterBox = document.getElementById('batter-box')
 export const ball = document.getElementById('ball')
 export const teamOneTag = document.getElementById('team-one')
 export const teamTwoTag = document.getElementById('team-two')
+export const scores = Array.from(document.querySelectorAll('.score'))
 export const strike = 'strike'
 export const homerunId = 'homerun'
 export const textBox = document.getElementById('text-box')
