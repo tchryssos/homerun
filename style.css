@@ -72,6 +72,37 @@ p {
 	left: 45%;
 }
 
+#bat {
+	height: 200px;
+	position: absolute;
+	bottom: 0;
+	right: 50%;
+	opacity: 0.6;
+	z-index: 10;
+}
+
+@keyframes swing {
+	0% { 
+		transform: rotate3d(-0.4, 0.5, 1, -40deg);
+	}
+	33% {
+		transform: rotate3d(-1, 2, 1, 20deg);
+	}
+	66% {
+		transform: rotate3d(0.1, 0.3, 1, 70deg);
+	}
+	100% {
+		transform: rotate3d(1, 0.6, 1, 70deg);
+	}
+}
+.animated-bat {
+	animation-name: swing;
+	animation-duration: 1s;
+	animation-direction: alternate;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+}
+
 #batter-box-wrapper {
 	position: absolute;
 	bottom: 0;
