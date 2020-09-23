@@ -6,8 +6,8 @@ import {
 	batterBox, ball, pitcher, teamOneTag, teamTwoTag,
 	scores, bat,
 } from '/js/elements'
-import { teamNames, cityNames, citySuffix } from '/js/constants'
-import { getRandomItem } from '/js/util'
+import { teamNames, rosterTemplate } from '/js/constants'
+import { getRandomItem, getCityName, buildRoster } from '/js/util'
 import { setCurrentScoreVal } from '/js/state'
 
 // LISTENERS
@@ -22,15 +22,10 @@ if (window.innerWidth >= 600) {
 }
 
 // SETUP
+const roster = buildRoster(rosterTemplate)
+console.log(roster)
 const teamNameOne = getRandomItem(teamNames)
 const teamNameTwo = getRandomItem(teamNames.filter(n => n !== teamNameOne))
-let prevCity = ''
-const getCityName = () => {
-	const city = getRandomItem(cityNames.filter(n => n !== prevCity))
-	prevCity = city
-	const suffix = Math.round(Math.random()) ? getRandomItem(citySuffix) : ''
-	return `${city}${suffix}`
-}
 const cityNameOne = getCityName()
 const cityNameTwo = getCityName()
 scores.forEach(
