@@ -15,15 +15,22 @@
 	flex-direction: column;
 }
 
-@keyframes batter-info-slide {
+@keyframes batter-info-y-slide {
 	0% { transform: translateY(0%) }
 	33% { transform: translateY(100%) }
 	66% { transform: translateY(100%) }
 	100% { transform: translateY(0%) }
 }
 
+@keyframes batter-info-x-slide {
+	0% { transform: translateX(0%) }
+	33% { transform: translateX(-100%) }
+	66% { transform: translateX(-100%) }
+	100% { transform: translateX(0%) }
+}
+
 .sliding-info-slide {
-	animation: batter-info-slide 5s linear;
+	animation: batter-info-x-slide 5s linear;
 }
 
 #at-bat {
@@ -101,6 +108,10 @@
 @media only screen and (min-width: 700px) {
 	#batter-info-box {
 		width: 60%;
+	}
+
+	.sliding-info-slide {
+		animation: batter-info-y-slide 5s linear;
 	}
 
 	#batter-portrait {
