@@ -1,0 +1,27 @@
+#batter-info-box {
+	position: absolute;
+	width: 50%;
+	right: 0;
+	bottom: 0;
+}
+
+#sliding-info {
+	width: 100%;
+	background-color: black;
+	color: white;
+	border: 5px solid white;
+	padding: 8px;
+	transform: translateY(300px);
+}
+
+@keyframes batter-info-slide {
+	0% { transform: translateY(300px) }
+	25% { transform: translateY(-100px) }
+	50% { transform: translateY(-100px) }
+	75% { transform: translateY(-100px) }
+	100% { transform: translateY(300px) }
+}
+
+.sliding-info-slide {
+	animation: batter-info-slide 8s ease-in-out;
+}

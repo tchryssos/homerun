@@ -1,0 +1,33 @@
+.white-border {
+	border: 5px solid white;
+}
+
+#scoreboard {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: flex;
+	border-right: none;
+	background-color: black;
+	color: white;
+}
+
+.scoreboard-column {
+	display: flex;
+	flex-direction: column;
+	border-right: 5px solid white;
+	min-width: 2rem;
+}
+
+.scoreboard-row {
+	padding: 4px;
+	border-bottom: 5px solid white;
+	font-size: 12px;
+	display: flex;
+	align-items: center;
+	min-height: 2rem;
+}
+
+.scoreboard-row:last-child {
+	border-bottom: none;
+}
