@@ -3,7 +3,7 @@ import { buildPlayerName, generatePlayerPortrait } from '/js/players'
 import { cityNames, citySuffix, rosterTemplate } from '/js/constants'
 import {
 	batterName, slidingInfo, batterHeight, batterWeight, batterPosition,
-	batterNumber,
+	batterNumber, batterBA,
 } from '/js/elements'
 
 let prevCity = ''
@@ -41,6 +41,7 @@ export const fetchNewPlayer = (preventSlide) => {
 			batterWeight.textContent = `${getRandomBetween(85, 400)} lbs`
 			batterPosition.textContent = getRandomItem(positions)
 			batterNumber.textContent = `#${getRandomBetween(0, 100)}`
+			batterBA.textContent = `.${getRandomBetween(100, 500)}`
 		}, preventSlide ? 0 : 2500
 	)
 }

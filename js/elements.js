@@ -22,7 +22,7 @@ export const batterNumber = document.getElementById('batter-number')
 export const batterPosition = document.getElementById('batter-position')
 export const batterHeight = document.getElementById('batter-height')
 export const batterWeight = document.getElementById('batter-weight')
-// export const batterNumber = document.getElementById('batter-number')
+export const batterBA = document.getElementById('batter-ba')
 
 export const eyeSheet = document.getElementById('eyes')
 export const noseSheet = document.getElementById('noses')
