@@ -26,6 +26,7 @@ export const batterPosition = document.getElementById('batter-position')
 export const batterHeight = document.getElementById('batter-height')
 export const batterWeight = document.getElementById('batter-weight')
 export const batterBA = document.getElementById('batter-ba')
+export const atBatText = document.getElementById('at-bat')
 
 export const eyeSheet = document.getElementById('eyes')
 export const noseSheet = document.getElementById('noses')

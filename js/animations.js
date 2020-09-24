@@ -5,7 +5,7 @@ import {
 import { timeout, getTargetFrameMod, addAndRemoveClass } from '/js/util'
 import {
 	ball, batterBox, homerunId, textBox, setSvg2,
-	setSvg3, setSvg1, strike, lastScore,
+	setSvg3, setSvg1, strike, teamTwoScore,
 } from '/js/elements'
 import {
 	isAnimating, setIsAnimating, translateY, setTranslateY, scale,
@@ -55,8 +55,8 @@ export const homerun = () => {
 		const newScore = currentScoreVal + 1
 		setCurrentScoreVal(newScore)
 		setTimeout(() => {
-			addAndRemoveClass(lastScore, 'big-score', 4000)
-			lastScore.textContent = `${newScore}`
+			addAndRemoveClass(teamTwoScore, 'big-score', 4000)
+			teamTwoScore.textContent = `${newScore}`
 			fetchNewPlayer()
 		}, hitSpeed)
 		endPitchCycle()

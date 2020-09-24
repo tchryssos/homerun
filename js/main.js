@@ -5,11 +5,13 @@ import { runPitchAnimation, homerun } from '/js/animations'
 import {
 	batterBox, ball, pitcher, teamOneScore, teamTwoScore,
 	bat, teamOneText, teamOneLogo, teamTwoText, teamTwoLogo,
+	atBatText,
 } from '/js/elements'
 import { teamNames } from '/js/constants'
 import { getRandomItem, getRandomBetween, getRandomColorString } from '/js/util'
 import { getCityName, fetchNewPlayer } from '/js/teams'
 import { colorChange } from '/js/players'
+import { setCurrentScoreVal } from '/js/state'
 
 // LISTENERS
 batterBox.addEventListener('click', runPitchAnimation)
@@ -37,11 +39,13 @@ teamTwoLogo.style.backgroundColor = getRandomColorString()
 teamOneLogo.style.color = getRandomColorString()
 teamTwoLogo.style.color = getRandomColorString()
 teamOneScore.textContent = getRandomBetween(0, 20)
-teamTwoScore.textContent = getRandomBetween(0, 20)
-
+const playerScore = getRandomBetween(0, 20)
+teamTwoScore.textContent = playerScore
+setCurrentScoreVal(playerScore)
 
 colorChange(pitcher)
 fetchNewPlayer(true)
+atBatText.textContent = `NOW AT BAT FOR ${getAbvTeam(teamTwoString).toUpperCase()}`
 // RUN
 pitcher.src = pitcherSvg1
 
