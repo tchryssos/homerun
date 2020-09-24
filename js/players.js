@@ -72,23 +72,14 @@ export const generatePlayerPortrait = () => {
 // END - PORTRAIT GENERATOR - END
 
 // START - NAME GENERATOR - START
-const vowels = ['a', 'e', 'i', 'o', 'u']
-// Weightings roughly taken from this chart:
-// https://home.uchicago.edu/~jsfalk/misc/baby_names/images/contains_male.png
-// const weightedConsonants = [
-// 	['b', 10], ['c', 15], ['d', 25], ['f', 5], ['g', 10],
-// 	['h', 27], ['j', 15], ['k', 7], ['l', 35], ['m', 20],
-// 	['n', 35], ['p', 7], ['q', 1], ['r', 45], ['s', 20],
-// 	['t', 20], ['v', 7], ['w', 10], ['x', 1], ['y', 15],
-// 	['z', 1],
-// ]
+const vowels = ['a', 'e', 'i', 'o', 'u', 'y']
 
-// Weightings taken from the actual 1990 Mets roster
+// Weightings roughly taken from the actual 1990 Mets roster
 const weightedConsonants = [
 	['b', 3], ['c', 4], ['d', 9], ['f', 3], ['g', 3],
-	['h', 6], ['j', 3], ['k', 4], ['l', 10], ['m', 5],
-	['n', 11], ['p', 1], ['q', 1], ['r', 15], ['s', 6],
-	['t', 6], ['v', 4], ['w', 2], ['x', 1], ['y', 3],
+	['h', 6], ['j', 3], ['k', 4], ['l', 10], ['m', 6],
+	['n', 12], ['p', 1], ['q', 1], ['r', 16], ['s', 6],
+	['t', 6], ['v', 4], ['w', 2], ['x', 1],
 	['z', 1],
 ]
 const consonants = weightedConsonants.map((c) => c[0])

@@ -3,14 +3,13 @@ import pitcherSvg1 from '/static/Pitcher1.svg'
 
 import { runPitchAnimation, homerun } from '/js/animations'
 import {
-	batterBox, ball, pitcher, teamOneTag, teamTwoTag,
-	scores, bat, teamOneAbvTag, teamTwoAbvTag,
+	batterBox, ball, pitcher, teamOneScore, teamTwoScore,
+	bat, teamOneText, teamOneLogo, teamTwoText, teamTwoLogo,
 } from '/js/elements'
 import { teamNames } from '/js/constants'
-import { getRandomItem } from '/js/util'
+import { getRandomItem, getRandomBetween, getRandomColorString } from '/js/util'
 import { getCityName, fetchNewPlayer } from '/js/teams'
 import { colorChange } from '/js/players'
-import { setCurrentScoreVal } from '/js/state'
 
 // LISTENERS
 batterBox.addEventListener('click', runPitchAnimation)
@@ -28,24 +27,18 @@ const teamNameOne = getRandomItem(teamNames)
 const teamNameTwo = getRandomItem(teamNames.filter(n => n !== teamNameOne))
 const cityNameOne = getCityName()
 const cityNameTwo = getCityName()
-
-scores.forEach(
-	(el, i) => {
-		const rNum = Math.round(Math.random() * 10)
-		el.textContent = rNum
-		if (i === scores.length - 1) {
-			setCurrentScoreVal(rNum)
-		}
-	}
-)
-
 const teamOneString = `${cityNameOne} ${teamNameOne}`
 const teamTwoString = `${cityNameTwo} ${teamNameTwo}`
-teamOneTag.textContent = teamOneString
-teamTwoTag.textContent = teamTwoString
 const getAbvTeam = (teamName) => teamName.split(/[^A-Z0-9]/).join('')
-teamOneAbvTag.textContent = getAbvTeam(teamOneString)
-teamTwoAbvTag.textContent = getAbvTeam(teamTwoString)
+teamOneText.textContent = getAbvTeam(teamOneString)
+teamTwoText.textContent = getAbvTeam(teamTwoString)
+teamOneLogo.style.backgroundColor = getRandomColorString()
+teamTwoLogo.style.backgroundColor = getRandomColorString()
+teamOneLogo.style.color = getRandomColorString()
+teamTwoLogo.style.color = getRandomColorString()
+teamOneScore.textContent = getRandomBetween(0, 20)
+teamTwoScore.textContent = getRandomBetween(0, 20)
+
 
 colorChange(pitcher)
 fetchNewPlayer(true)

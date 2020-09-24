@@ -1,5 +1,5 @@
 .white-border {
-	border: 5px solid white;
+	border: 2px solid white;
 }
 
 #scoreboard {
@@ -7,34 +7,34 @@
 	top: 0;
 	left: 0;
 	display: flex;
-	border-right: none;
 	background-color: black;
 	color: white;
 }
 
-.scoreboard-column {
+.team-scoreboard {
 	display: flex;
-	flex-direction: column;
-	border-right: 5px solid white;
-	min-width: 2rem;
 }
 
-.scoreboard-row {
+.team-logo {
+	height: 52px;
+	width: 52px;
 	padding: 4px;
-	border-bottom: 5px solid white;
-	font-size: 12px;
 	display: flex;
 	align-items: center;
-	min-height: 2rem;
+	justify-content: center;
+	text-shadow: 1px 1px #000;
 }
 
-.scoreboard-row:last-child {
-	border-bottom: none;
+.team-score {
+	height: 52px;
+	width: 52px;
+	padding: 4px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-sizing: border-box;
 }
 
-.full-team-name {
-	display: none;
-}
 
 @keyframes big-score {
 	from { transform: scale(1) }
@@ -47,11 +47,4 @@
 }
 
 @media only screen and (min-width: 600px) {
-	.full-team-name {
-		display: block;
-	}
-
-	.abv-team-name {
-		display: none;
-	}
 }

@@ -25,3 +25,5 @@ export const addAndRemoveClass = (el, classString, time) => {
 	el.classList.add(classString)
 	setTimeout(() => el.classList.remove(classString), time)
 }
+
+export const getRandomColorString = () => `#${Math.floor(Math.random()*16777215).toString(16)}`

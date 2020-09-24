@@ -1,15 +1,15 @@
 #batter-info-box {
 	position: absolute;
-	width: 40%;
-	right: 0;
-	bottom: 0;
+	width: 100%;
+	/* Sits below scoreboard */
+	top: 114px
 }
 
 #sliding-info {
 	width: 100%;
 	background-color: black;
 	color: white;
-	border: 5px solid white;
+	border: 2px solid white;
 	padding: 12px;
 	display: flex;
 	flex-direction: column;
@@ -51,8 +51,8 @@
 }
 
 #batter-portrait {
-	height: 80px;
-	width: 80px;
+	height: 52px;
+	width: 52px;
 	position: relative;
 	margin-right: 16px;
 	overflow: hidden;
@@ -96,4 +96,21 @@
 
 #marks {
 	height: 300%;
+}
+
+@media only screen and (min-width: 700px) {
+	#batter-info-box {
+		width: 60%;
+	}
+
+	#batter-portrait {
+		height: 80px;
+		width: 80px;
+	}
+}
+
+@media only screen and (min-width: 960px) {
+	#batter-info-box {
+		width: 40%;
+	}
 }

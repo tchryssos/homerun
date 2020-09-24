@@ -11,12 +11,13 @@ export const setSvg1 = () => pitcher.src = pitcherSvg1
 export const setSvg2 = () => pitcher.src = pitcherSvg2
 export const setSvg3 = () => pitcher.src = pitcherSvg3
 
-export const teamOneTag = document.getElementById('team-one')
-export const teamTwoTag = document.getElementById('team-two')
-export const teamOneAbvTag = document.getElementById('team-one-abv')
-export const teamTwoAbvTag = document.getElementById('team-two-abv')
-export const scores = Array.from(document.querySelectorAll('.score'))
-export const lastScore = scores[scores.length - 1]
+export const teamOneText = document.getElementById('team-logo-text-one')
+export const teamOneLogo = document.getElementById('team-logo-one')
+export const teamTwoText = document.getElementById('team-logo-text-two') 
+export const teamTwoLogo = document.getElementById('team-logo-two')
+export const teamOneScore = document.getElementById('team-score-one')
+export const teamTwoScore = document.getElementById('team-score-two')
+
 
 export const slidingInfo = document.getElementById('sliding-info')
 export const batterName = document.getElementById('batter-name')
