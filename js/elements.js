@@ -13,6 +13,8 @@ export const setSvg3 = () => pitcher.src = pitcherSvg3
 
 export const teamOneTag = document.getElementById('team-one')
 export const teamTwoTag = document.getElementById('team-two')
+export const teamOneAbvTag = document.getElementById('team-one-abv')
+export const teamTwoAbvTag = document.getElementById('team-two-abv')
 export const scores = Array.from(document.querySelectorAll('.score'))
 export const lastScore = scores[scores.length - 1]
 

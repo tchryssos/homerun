@@ -4,7 +4,7 @@ import pitcherSvg1 from '/static/Pitcher1.svg'
 import { runPitchAnimation, homerun } from '/js/animations'
 import {
 	batterBox, ball, pitcher, teamOneTag, teamTwoTag,
-	scores, bat,
+	scores, bat, teamOneAbvTag, teamTwoAbvTag,
 } from '/js/elements'
 import { teamNames } from '/js/constants'
 import { getRandomItem } from '/js/util'
@@ -28,6 +28,7 @@ const teamNameOne = getRandomItem(teamNames)
 const teamNameTwo = getRandomItem(teamNames.filter(n => n !== teamNameOne))
 const cityNameOne = getCityName()
 const cityNameTwo = getCityName()
+
 scores.forEach(
 	(el, i) => {
 		const rNum = Math.round(Math.random() * 10)
@@ -37,10 +38,15 @@ scores.forEach(
 		}
 	}
 )
+
 const teamOneString = `${cityNameOne} ${teamNameOne}`
 const teamTwoString = `${cityNameTwo} ${teamNameTwo}`
 teamOneTag.textContent = teamOneString
 teamTwoTag.textContent = teamTwoString
+const getAbvTeam = (teamName) => teamName.split(/[^A-Z0-9]/).join('')
+teamOneAbvTag.textContent = getAbvTeam(teamOneString)
+teamTwoAbvTag.textContent = getAbvTeam(teamTwoString)
+
 colorChange(pitcher)
 fetchNewPlayer(true)
 // RUN
