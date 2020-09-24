@@ -17,10 +17,6 @@ export const scores = Array.from(document.querySelectorAll('.score'))
 export const lastScore = scores[scores.length - 1]
 
 export const slidingInfo = document.getElementById('sliding-info')
-export const slideInfo = () => {
-	slidingInfo.classList.add('sliding-info-slide')
-	setTimeout(() => slidingInfo.classList.remove('sliding-info-slide'), 8000)
-}
 export const batterName = document.getElementById('batter-name')
 export const eyeSheet = document.getElementById('eyes')
 export const noseSheet = document.getElementById('noses')

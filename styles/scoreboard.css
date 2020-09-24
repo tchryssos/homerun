@@ -31,3 +31,13 @@
 .scoreboard-row:last-child {
 	border-bottom: none;
 }
+
+@keyframes big-score {
+	from { transform: scale(1) }
+	to { transform: scale(10) }
+}
+
+.big-score {
+	animation: big-score 4s linear;
+	color: red;
+}

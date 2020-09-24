@@ -20,3 +20,8 @@ export const getRandomItem = (array) => (
 export const getRandomBetween = (min, max) => {
 	return Math.floor(Math.random() * (max - min) + min)
 }
+
+export const addAndRemoveClass = (el, classString, time) => {
+	el.classList.add(classString)
+	setTimeout(() => el.classList.remove(classString), time)
+}

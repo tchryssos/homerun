@@ -2,7 +2,7 @@ import {
 	pitchSpeed, frameSpeed, hitSpeed, pitchYTarget,
 	hitYTarget, hitXTarget, pitchScaleTarget, hitScaleTarget,
 } from '/js/constants'
-import { timeout, getTargetFrameMod } from '/js/util'
+import { timeout, getTargetFrameMod, addAndRemoveClass } from '/js/util'
 import {
 	ball, batterBox, homerunId, textBox, setSvg2,
 	setSvg3, setSvg1, strike, lastScore,
@@ -53,7 +53,11 @@ export const homerun = () => {
 		timeout(() => toggleText(homerunId, false), hitSpeed)
 		const newScore = currentScoreVal + 1
 		setCurrentScoreVal(newScore)
-		setTimeout(() => lastScore.textContent = `${newScore}`, hitSpeed)
+		setTimeout(() => {
+			addAndRemoveClass(lastScore, 'big-score', 4000)
+			lastScore.classList.add('big-score')
+			lastScore.textContent = `${newScore}`
+		}, hitSpeed)
 		endPitchCycle()
 	}
 }
