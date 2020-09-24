@@ -22,7 +22,7 @@ const calcShift = (sheetSize) => {
 	return getRandomBetween(0, sheetSize) * chunkP
 }
 
-const colorChange = (el, overrideH, overrideS, overrideB) => {
+export const colorChange = (el, overrideH, overrideS, overrideB) => {
 	el.style.filter = `
 		hue-rotate(${overrideH || getRandomBetween(0, 360)}deg)
 		saturate(${overrideS || getRandomBetween(50, 200)}%)
