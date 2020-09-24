@@ -110,7 +110,6 @@ const replaceLetter = (letter, optionArray) => {
 	return replacement
 }
 
-
 export const buildPlayerName = (templateName) => {
 	const letters = templateName.split('')
 	return letters.reduce(

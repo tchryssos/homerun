@@ -1,6 +1,6 @@
 #batter-info-box {
 	position: absolute;
-	width: 50%;
+	width: 40%;
 	right: 0;
 	bottom: 0;
 }
@@ -10,9 +10,9 @@
 	background-color: black;
 	color: white;
 	border: 5px solid white;
-	padding: 8px;
+	padding: 12px;
 	display: flex;
-	align-items: center;
+	flex-direction: column;
 }
 
 @keyframes batter-info-slide {
@@ -24,6 +24,16 @@
 
 .sliding-info-slide {
 	animation: batter-info-slide 5s linear;
+}
+
+#at-bat {
+	margin-bottom: 8px;
+	text-decoration: underline;
+}
+
+#batter-meta {
+	display: flex;
+	align-items: center;
 }
 
 #batter-portrait {
