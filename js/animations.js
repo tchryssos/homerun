@@ -17,6 +17,7 @@ import {
 	setHitTime, setHitY, setHitScale, currentScoreVal, setCurrentScoreVal,
 } from '/js/state'
 import { strikeAudio, speakHomerun, hitAudio, crowdAudio } from '/js/audio'
+import { fetchNewPlayer } from '/js/teams'
 
 let initialPitch = true
 
@@ -56,6 +57,7 @@ export const homerun = () => {
 		setTimeout(() => {
 			addAndRemoveClass(lastScore, 'big-score', 4000)
 			lastScore.textContent = `${newScore}`
+			fetchNewPlayer()
 		}, hitSpeed)
 		endPitchCycle()
 	}

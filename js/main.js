@@ -4,10 +4,10 @@ import pitcherSvg1 from '/static/Pitcher1.svg'
 import { runPitchAnimation, homerun } from '/js/animations'
 import {
 	batterBox, ball, pitcher, teamOneTag, teamTwoTag,
-	scores, bat, slidingInfo,
+	scores, bat,
 } from '/js/elements'
 import { teamNames } from '/js/constants'
-import { getRandomItem, addAndRemoveClass } from '/js/util'
+import { getRandomItem } from '/js/util'
 import { getCityName, fetchNewPlayer } from '/js/teams'
 import { colorChange } from '/js/players'
 import { setCurrentScoreVal } from '/js/state'
@@ -42,8 +42,7 @@ const teamTwoString = `${cityNameTwo} ${teamNameTwo}`
 teamOneTag.textContent = teamOneString
 teamTwoTag.textContent = teamTwoString
 colorChange(pitcher)
-fetchNewPlayer()
-addAndRemoveClass(slidingInfo, 'sliding-info-slide', 8000)
+fetchNewPlayer(true)
 // RUN
 pitcher.src = pitcherSvg1
 

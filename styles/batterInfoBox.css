@@ -11,21 +11,19 @@
 	color: white;
 	border: 5px solid white;
 	padding: 8px;
-	transform: translateY(100%);
 	display: flex;
 	align-items: center;
 }
 
 @keyframes batter-info-slide {
-	0% { transform: translateY(100%) }
-	25% { transform: translateY(0%) }
-	50% { transform: translateY(0%) }
-	75% { transform: translateY(0%) }
-	100% { transform: translateY(100%) }
+	0% { transform: translateY(0%) }
+	33% { transform: translateY(100%) }
+	66% { transform: translateY(100%) }
+	100% { transform: translateY(0%) }
 }
 
 .sliding-info-slide {
-	animation: batter-info-slide 8s linear;
+	animation: batter-info-slide 5s linear;
 }
 
 #batter-portrait {
