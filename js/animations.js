@@ -16,7 +16,7 @@ import {
 import {
 	setHitTime, setHitY, setHitScale, currentScoreVal, setCurrentScoreVal,
 } from '/js/state'
-import { strikeAudio, speakHomerun, hitAudio, crowdAudio } from '/js/audio'
+import { strikeAudio, homerunAudio, hitAudio, crowdAudio } from '/js/audio'
 import { fetchNewPlayer } from '/js/teams'
 
 let initialPitch = true
@@ -50,7 +50,7 @@ export const homerun = () => {
 		setHitY(translateY)
 		setHitScale(scale)
 		toggleText(homerunId, true)
-		setTimeout(() => speakHomerun(), 300)
+		setTimeout(() => homerunAudio.play(), 300)
 		timeout(() => toggleText(homerunId, false), hitSpeed)
 		const newScore = currentScoreVal + 1
 		setCurrentScoreVal(newScore)
