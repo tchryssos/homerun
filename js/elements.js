@@ -28,6 +28,7 @@ export const pupilSheet = document.getElementById('pupils')
 export const hairSheet = document.getElementById('hair')
 export const stacheSheet = document.getElementById('stache')
 export const markSheet = document.getElementById('marks')
+export const mouthSheet = document.getElementById('mouths')
 
 
 export const strike = 'strike'

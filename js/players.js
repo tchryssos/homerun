@@ -1,6 +1,6 @@
 import {
 	eyeSheet, noseSheet, hairSheet, markSheet, pupilSheet,
-	stacheSheet,
+	stacheSheet, mouthSheet,
 } from '/js/elements'
 
 import { getRandomBetween } from '/js/util'
@@ -11,6 +11,7 @@ const hairSheetSize = 8
 const markSheetSize = 3
 const pupilSheetSize = 3
 const stacheSheetSize = 3
+const mouthSheetSize = 5
 
 const shiftSheet = (el, shiftInt) => {
 	el.style.transform = `translateY(-${shiftInt}%)`
@@ -25,14 +26,26 @@ export const generatePlayerPortrait = () => {
 	const eyeShift = calcShift(eyeSheetSize)
 	const noseShift = calcShift(noseSheetSize)
 	const hairShift = calcShift(hairSheetSize)
-	const markShift = calcShift(markSheetSize)
 	const pupilShift = calcShift(pupilSheetSize)
-	const stacheShift = calcShift(stacheSheetSize)
+	const mouthShift = calcShift(mouthSheetSize)
 
 	shiftSheet(eyeSheet, eyeShift)
 	shiftSheet(noseSheet, noseShift)
 	shiftSheet(hairSheet, hairShift)
-	shiftSheet(markSheet, markShift)
 	shiftSheet(pupilSheet, pupilShift)
-	shiftSheet(stacheSheet, stacheShift)
+	shiftSheet(mouthSheet, mouthShift)
+
+
+	if (getRandomBetween(0, 10) > 6) {
+		const stacheShift = calcShift(stacheSheetSize) 
+		shiftSheet(stacheSheet, stacheShift)
+	} else {
+		stacheSheet.style.display = 'none'
+	}
+	if (getRandomBetween(0, 10) > 7) {
+		const markShift = calcShift(markSheetSize)
+		shiftSheet(markSheet, markShift)
+	} else {
+		markSheet.style.display = 'none'
+	}
 }
