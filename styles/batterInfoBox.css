@@ -2,7 +2,8 @@
 	position: absolute;
 	width: 100%;
 	/* Sits below scoreboard */
-	top: 64px
+	top: 64px;
+	left: 0;
 }
 
 #sliding-info {
@@ -13,13 +14,6 @@
 	padding: 12px;
 	display: flex;
 	flex-direction: column;
-}
-
-@keyframes batter-info-y-slide {
-	0% { transform: translateY(0%) }
-	33% { transform: translateY(100%) }
-	66% { transform: translateY(100%) }
-	100% { transform: translateY(0%) }
 }
 
 @keyframes batter-info-x-slide {
@@ -105,13 +99,9 @@
 	height: 300%;
 }
 
-@media only screen and (min-width: 700px) {
+@media only screen and (min-width: 600px) {
 	#batter-info-box {
 		width: 60%;
-	}
-
-	.sliding-info-slide {
-		animation: batter-info-y-slide 5s linear;
 	}
 
 	#batter-portrait {
