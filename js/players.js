@@ -1,6 +1,6 @@
 import {
 	eyeSheet, noseSheet, hairSheet, markSheet, pupilSheet,
-	stacheSheet, mouthSheet,
+	stacheSheet, mouthSheet, headSheet,
 } from '/js/elements'
 
 import { getRandomBetween } from '/js/util'
@@ -19,10 +19,22 @@ const shiftSheet = (el, shiftInt) => {
 
 const calcShift = (sheetSize) => {
 	const chunkP = 100 / sheetSize
-	return getRandomBetween(0, eyeSheetSize) * chunkP
+	return getRandomBetween(0, sheetSize) * chunkP
 }
 
+const colorChange = (el, overrideH, overrideS, overrideB) => {
+	el.style.filter = `
+		hue-rotate(${overrideH || getRandomBetween(0, 360)}deg)
+		saturate(${overrideS || getRandomBetween(50, 200)}%)
+		brightness(${overrideB || getRandomBetween(20, 200)}%)
+	`
+}
 export const generatePlayerPortrait = () => {
+	const headSaturate = getRandomBetween(25, 100)
+	const headBrightness = getRandomBetween(20, 100)
+	colorChange(headSheet, null, headSaturate, headBrightness)
+
+
 	const eyeShift = calcShift(eyeSheetSize)
 	const noseShift = calcShift(noseSheetSize)
 	const hairShift = calcShift(hairSheetSize)
@@ -31,14 +43,21 @@ export const generatePlayerPortrait = () => {
 
 	shiftSheet(eyeSheet, eyeShift)
 	shiftSheet(noseSheet, noseShift)
-	shiftSheet(hairSheet, hairShift)
-	shiftSheet(pupilSheet, pupilShift)
 	shiftSheet(mouthSheet, mouthShift)
 
+	shiftSheet(hairSheet, hairShift)
+	const hairRotation = getRandomBetween(0, 360)
+	const hairSaturate = getRandomBetween(50, 200)
+	const hairBrightness = getRandomBetween(20, 200)
+	colorChange(hairSheet, hairRotation, hairSaturate, hairBrightness)
+
+	shiftSheet(pupilSheet, pupilShift)
+	colorChange(pupilSheet)
 
 	if (getRandomBetween(0, 10) > 6) {
 		const stacheShift = calcShift(stacheSheetSize) 
 		shiftSheet(stacheSheet, stacheShift)
+		colorChange(stacheSheet, hairRotation, hairSaturate, hairBrightness)
 	} else {
 		stacheSheet.style.display = 'none'
 	}
