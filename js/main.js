@@ -9,6 +9,7 @@ import {
 import { teamNames } from '/js/constants'
 import { getRandomItem } from '/js/util'
 import { getCityName, roster, setRoster } from '/js/teams'
+import { generatePlayerPortrait } from '/js/players'
 import { setCurrentScoreVal } from '/js/state'
 
 // LISTENERS
@@ -43,6 +44,7 @@ teamTwoTag.textContent = teamTwoString
 const firstBatter = getRandomItem(roster)
 setRoster(roster.filter(p => p !== firstBatter))
 batterName.textContent = firstBatter
+generatePlayerPortrait()
 slideInfo()
 // RUN
 pitcher.src = pitcherSvg1

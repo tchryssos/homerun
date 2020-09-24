@@ -16,3 +16,7 @@ export const getTargetFrameMod = (target, speed, mod = 1) => (
 export const getRandomItem = (array) => (
 	array[Math.floor(Math.random() * array.length)]
 )
+
+export const getRandomBetween = (min, max) => {
+	return Math.floor(Math.random() * (max - min) + min)
+}
