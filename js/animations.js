@@ -55,7 +55,6 @@ export const homerun = () => {
 		setCurrentScoreVal(newScore)
 		setTimeout(() => {
 			addAndRemoveClass(lastScore, 'big-score', 4000)
-			lastScore.classList.add('big-score')
 			lastScore.textContent = `${newScore}`
 		}, hitSpeed)
 		endPitchCycle()
