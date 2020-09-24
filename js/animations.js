@@ -125,7 +125,7 @@ export const runPitchAnimation = async () => {
 		setTimeout(() => {
 			setSvg1()
 			if (!isHit) {
-				if (true || strikeCount >= 2) {
+				if (strikeCount >= 2) {
 					textBox.style.backgroundColor = 'black'
 					batterBox.style.display = 'none'
 					gameoverText.style.display = 'block'
