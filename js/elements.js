@@ -40,4 +40,5 @@ export const headSheet = document.getElementById('head')
 
 export const strike = 'strike'
 export const homerunId = 'homerun'
+export const gameoverText = document.getElementById('game-over')
 export const textBox = document.getElementById('text-box')

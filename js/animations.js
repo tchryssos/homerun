@@ -5,18 +5,18 @@ import {
 import { timeout, getTargetFrameMod, addAndRemoveClass } from '/js/util'
 import {
 	ball, batterBox, homerunId, textBox, setSvg2,
-	setSvg3, setSvg1, strike, teamTwoScore,
+	setSvg3, setSvg1, strike, teamTwoScore, gameoverText,
 } from '/js/elements'
 import {
 	isAnimating, setIsAnimating, translateY, setTranslateY, scale,
 	setScale, translateX, setTranslateX, pitchTime, setPitchTime,
 	isHit, setIsHit, hitScale, strikeCount, setStrikeCount,
-	hitTime, hitY,
+	hitTime, hitY, 	setHitTime, setHitY, setHitScale,
+	currentScoreVal, setCurrentScoreVal,
 } from '/js/state'
 import {
-	setHitTime, setHitY, setHitScale, currentScoreVal, setCurrentScoreVal,
-} from '/js/state'
-import { strikeAudio, homerunAudio, hitAudio, crowdAudio } from '/js/audio'
+	strikeAudio, homerunAudio, hitAudio, crowdAudio, gameOverAudio,
+} from '/js/audio'
 import { fetchNewPlayer } from '/js/teams'
 
 let initialPitch = true
@@ -65,6 +65,7 @@ export const homerun = () => {
 
 const toggleText = (childId, bool) => {
 	const el = document.getElementById(childId)
+	console.log(el, childId)
 	const bgColor = bool ? 'rgba(0, 0, 0, 0.7)' : 'transparent'
 	const elDisplay = bool ? 'block' : 'none'
 
@@ -124,15 +125,23 @@ export const runPitchAnimation = async () => {
 		setTimeout(() => {
 			setSvg1()
 			if (!isHit) {
-				toggleText(strike, true)
-				strikeAudio.play()
-				endPitchCycle()
-				setTimeout(() => {
-					toggleText(strike, false)
-					strikeAudio.pause()
-					strikeAudio.currentTime = 0
-				}, 2000)
-				setStrikeCount(strikeCount + 1)
+				if (true || strikeCount >= 2) {
+					textBox.style.backgroundColor = 'black'
+					batterBox.style.display = 'none'
+					gameoverText.style.display = 'block'
+					gameOverAudio.play()
+					crowdAudio.pause()
+				} else {
+					toggleText(strike, true)
+					strikeAudio.play()
+					endPitchCycle()
+					setTimeout(() => {
+						toggleText(strike, false)
+						strikeAudio.pause()
+						strikeAudio.currentTime = 0
+					}, 2000)
+					setStrikeCount(strikeCount + 1)
+				}
 			}
 		}, frameSpeed)
 	}

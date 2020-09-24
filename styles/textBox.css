@@ -26,3 +26,13 @@
 	animation-timing-function: linear;
 	animation-iteration-count: infinite;
 }
+
+#game-over {
+	display: none;
+	color: #050505;
+	font-size: 55px;
+	font-weight: 600;
+	text-align: left;
+	width: 100%;
+	font-family: serif;
+}
