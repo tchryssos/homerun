@@ -11,12 +11,12 @@
 	color: white;
 	border: 5px solid white;
 	padding: 8px;
-	/* transform: translateY(300px); */
+	transform: translateY(300px);
 	display: flex;
 	align-items: center;
 }
 
-/* @keyframes batter-info-slide {
+@keyframes batter-info-slide {
 	0% { transform: translateY(300px) }
 	25% { transform: translateY(-100px) }
 	50% { transform: translateY(-100px) }
@@ -26,7 +26,7 @@
 
 .sliding-info-slide {
 	animation: batter-info-slide 8s linear;
-} */
+}
 
 #batter-portrait {
 	height: 80px;
