@@ -4,11 +4,11 @@ import pitcherSvg1 from '/static/Pitcher1.svg'
 import { runPitchAnimation, homerun } from '/js/animations'
 import {
 	batterBox, ball, pitcher, teamOneTag, teamTwoTag,
-	scores, bat,
+	scores, bat, batterName, slideInfo
 } from '/js/elements'
-import { teamNames, rosterTemplate } from '/js/constants'
+import { teamNames } from '/js/constants'
 import { getRandomItem } from '/js/util'
-import { getCityName, buildRoster } from '/js/teams'
+import { getCityName, roster, setRoster } from '/js/teams'
 import { setCurrentScoreVal } from '/js/state'
 
 // LISTENERS
@@ -23,8 +23,6 @@ if (window.innerWidth >= 600) {
 }
 
 // SETUP
-const roster = buildRoster(rosterTemplate)
-console.log(roster)
 const teamNameOne = getRandomItem(teamNames)
 const teamNameTwo = getRandomItem(teamNames.filter(n => n !== teamNameOne))
 const cityNameOne = getCityName()
@@ -42,7 +40,10 @@ const teamOneString = `${cityNameOne} ${teamNameOne}`
 const teamTwoString = `${cityNameTwo} ${teamNameTwo}`
 teamOneTag.textContent = teamOneString
 teamTwoTag.textContent = teamTwoString
-
+const firstBatter = getRandomItem(roster)
+setRoster(roster.filter(p => p !== firstBatter))
+batterName.textContent = firstBatter
+slideInfo()
 // RUN
 pitcher.src = pitcherSvg1
 

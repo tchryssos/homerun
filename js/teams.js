@@ -1,5 +1,5 @@
 import { getRandomItem } from '/js/util'
-import { cityNames, citySuffix } from '/js/constants'
+import { cityNames, citySuffix, rosterTemplate } from '/js/constants'
 
 // START - TEAM UTILS - START
 let prevCity = ''
@@ -71,4 +71,7 @@ export const buildPlayerName = (templateName) => {
 export const buildRoster = (roster) => roster.map(
 	(name) => buildPlayerName(name)
 )
+
+export let roster = buildRoster(rosterTemplate)
+export const setRoster = (modRoster) => roster = modRoster
 // END - NAME UTILS - END

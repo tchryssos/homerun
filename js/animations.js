@@ -60,7 +60,7 @@ export const homerun = () => {
 
 const toggleText = (childId, bool) => {
 	const el = document.getElementById(childId)
-	const bgColor = bool ? 'rgba(0, 0, 0, 0.7' : 'transparent'
+	const bgColor = bool ? 'rgba(0, 0, 0, 0.7)' : 'transparent'
 	const elDisplay = bool ? 'block' : 'none'
 
 	textBox.style.backgroundColor = bgColor
