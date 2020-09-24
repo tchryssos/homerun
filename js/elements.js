@@ -18,6 +18,12 @@ export const lastScore = scores[scores.length - 1]
 
 export const slidingInfo = document.getElementById('sliding-info')
 export const batterName = document.getElementById('batter-name')
+export const batterNumber = document.getElementById('batter-number')
+export const batterPosition = document.getElementById('batter-position')
+export const batterHeight = document.getElementById('batter-height')
+export const batterWeight = document.getElementById('batter-weight')
+// export const batterNumber = document.getElementById('batter-number')
+
 export const eyeSheet = document.getElementById('eyes')
 export const noseSheet = document.getElementById('noses')
 export const pupilSheet = document.getElementById('pupils')

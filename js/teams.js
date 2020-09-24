@@ -1,7 +1,10 @@
-import { getRandomItem, addAndRemoveClass } from '/js/util'
+import { getRandomItem, addAndRemoveClass, getRandomBetween } from '/js/util'
 import { buildPlayerName, generatePlayerPortrait } from '/js/players'
 import { cityNames, citySuffix, rosterTemplate } from '/js/constants'
-import { batterName, slidingInfo } from '/js/elements'
+import {
+	batterName, slidingInfo, batterHeight, batterWeight, batterPosition,
+	batterNumber,
+} from '/js/elements'
 
 let prevCity = ''
 export const getCityName = () => {
@@ -19,6 +22,11 @@ export const buildRoster = (roster) => roster.map(
 let roster = buildRoster(rosterTemplate)
 const setRoster = (modRoster) => roster = modRoster
 
+const positions = [
+	'P', 'C', '1B', '2B', '3B',
+	'SS', 'LF', 'CF', 'RF', 'IF',
+	'OF', 'CL'
+]
 export const fetchNewPlayer = (preventSlide) => {
 	if (!preventSlide) {
 		addAndRemoveClass(slidingInfo, 'sliding-info-slide', 5000)
@@ -29,6 +37,10 @@ export const fetchNewPlayer = (preventSlide) => {
 			setRoster(roster.filter(p => p !== newBatter))
 			batterName.textContent = newBatter
 			generatePlayerPortrait()
+			batterHeight.textContent = `${getRandomBetween(4, 9)}'${getRandomBetween(0, 12)}"`
+			batterWeight.textContent = `${getRandomBetween(85, 400)} lbs`
+			batterPosition.textContent = getRandomItem(positions)
+			batterNumber.textContent = `#${getRandomBetween(0, 100)}`
 		}, preventSlide ? 0 : 2500
 	)
 }

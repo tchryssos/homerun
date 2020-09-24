@@ -36,6 +36,20 @@
 	align-items: center;
 }
 
+#batter-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.batter-stat-row {
+	display: flex;
+	margin-bottom: 4px;
+}
+
+.batter-stat {
+	margin-right: 8px;
+}
+
 #batter-portrait {
 	height: 80px;
 	width: 80px;
