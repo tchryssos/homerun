@@ -27,12 +27,12 @@ export const colorChange = (el, overrideH, overrideS, overrideB) => {
 	el.style.filter = `
 		hue-rotate(${overrideH || getRandomBetween(0, 360)}deg)
 		saturate(${overrideS || getRandomBetween(50, 200)}%)
-		brightness(${overrideB || getRandomBetween(20, 200)}%)
+		brightness(${overrideB || getRandomBetween(50, 200)}%)
 	`
 }
 export const generatePlayerPortrait = () => {
-	const headSaturate = getRandomBetween(25, 100)
-	const headBrightness = getRandomBetween(20, 100)
+	const headSaturate = getRandomBetween(25, 150)
+	const headBrightness = getRandomBetween(50, 100)
 	colorChange(headSheet, null, headSaturate, headBrightness)
 
 
