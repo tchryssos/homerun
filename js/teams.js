@@ -15,13 +15,6 @@ export const getCityName = () => {
 }
 // END - TEAM UTILS - END
 
-export const buildRoster = (roster) => roster.map(
-	(name) => buildPlayerName(name)
-)
-
-let roster = buildRoster(rosterTemplate)
-const setRoster = (modRoster) => roster = modRoster
-
 const positions = [
 	'P', 'C', '1B', '2B', '3B',
 	'SS', 'LF', 'CF', 'RF', 'IF',
@@ -33,8 +26,7 @@ export const fetchNewPlayer = (preventSlide) => {
 	}
 	setTimeout(
 		() => {
-			const newBatter = getRandomItem(roster)
-			setRoster(roster.filter(p => p !== newBatter))
+			const newBatter = buildPlayerName(getRandomItem(rosterTemplate))
 			batterName.textContent = newBatter
 			generatePlayerPortrait()
 			batterHeight.textContent = `${getRandomBetween(4, 9)}'${getRandomBetween(0, 12)}"`
