@@ -68,6 +68,7 @@
 	display: flex;
 	width: 100%;
 	justify-content: center;
+	margin-bottom: 12px;
 }
 
 #batter-box {
@@ -95,10 +96,6 @@
 }
 
 @media only screen and (max-width: 460px) {
-	#batter-box-wrapper {
-		bottom: 12px;
-	}
-
 	#batter-box {
 		font-size: 32px;
 	}
@@ -110,9 +107,6 @@
 }
 
 @media only screen and (max-height: 640px) {
-	#batter-box-wrapper {
-		bottom: 12px;
-	}
 
 	#batter-box {
 		font-size: 32px;

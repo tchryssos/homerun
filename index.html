@@ -16,60 +16,62 @@
 </head>
 <body>
 	<div id="canvas">
-
-		<!-- START - BATTER INFO - START -->
-		<div id="batter-info-box">
-			<div id="sliding-info">
-				<p id="at-bat">NOW AT BAT</p>
-				<div id="batter-meta">
-					<div id="batter-portrait">
-						<img src="static/batter_head.svg" id="head"/>
-						<img src="static/batter_eyes.svg" id="eyes" class="batter-features"/>
-						<img src="static/batter_pupils.svg" id="pupils" class="batter-features" />
-						<img src="static/batter_noses.svg" id="noses" class="batter-features" />
-						<img src="static/batter_mouths.svg" id="mouths" class="batter-features" />
-						<img src="static/batter_hair.svg" id="hair" class="batter-features" />
-						<img src="static/batter_stache.svg" id="stache" class="batter-features" />
-						<img src="static/batter_marks.svg" id="marks" class="batter-features" />
-					</div>
-					<div id="batter-text">
-						<div id="btext-first-row" class="batter-stat-row">
-							<p id="batter-number" class="batter-stat"></p>
-							<p id="batter-name"></p>
-						</div>
-						<div id="btext-second-row" class="batter-stat-row">
-							<p id="batter-position" class="batter-stat"></p>
-							<p class="batter-stat">/</p>
-							<p id="batter-ba" class="batter-stat"></p>
-							<p class="batter-stat">/</p>
-							<p id="batter-height" class="batter-stat"></p>
-							<p class="batter-stat">/</p>
-							<p id="batter-weight" class="batter-stat"></p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- END - BATTER INFO - END -->
-
 		<!-- START - SCOREBOARD - START -->
 		<div id="scoreboard-area">
-			<div id="scoreboard" class="white-border">
-				<div id="team-scoreboard-one" class="team-scoreboard">
-					<div id="team-logo-one" class="team-logo">
-						<p id="team-logo-text-one"></p>
+
+			<div id="score-and-count">
+				<div id="scoreboard" class="white-border">
+					<div id="team-scoreboard-one" class="team-scoreboard">
+						<div id="team-logo-one" class="team-logo">
+							<p id="team-logo-text-one"></p>
+						</div>
+						<p id="team-score-one" class="team-score"/>
 					</div>
-					<p id="team-score-one" class="team-score"/>
+					<div id="team-scoreboard-two" class="team-scoreboard">
+						<div id="team-logo-two" class="team-logo">
+							<p id="team-logo-text-two"></p>
+						</div>
+						<p id="team-score-two" class="team-score"></p>
+					</div>
 				</div>
-				<div id="team-scoreboard-two" class="team-scoreboard">
-					<div id="team-logo-two" class="team-logo">
-						<p id="team-logo-text-two"></p>
+		
+				<p id="batter-count" class="team-score"></p>
+			</div>
+
+			<!-- START - BATTER INFO - START -->
+			<div id="batter-info-box">
+				<div id="sliding-info">
+					<p id="at-bat">NOW AT BAT</p>
+					<div id="batter-meta">
+						<div id="batter-portrait">
+							<img src="static/batter_head.svg" id="head"/>
+							<img src="static/batter_eyes.svg" id="eyes" class="batter-features"/>
+							<img src="static/batter_pupils.svg" id="pupils" class="batter-features" />
+							<img src="static/batter_noses.svg" id="noses" class="batter-features" />
+							<img src="static/batter_mouths.svg" id="mouths" class="batter-features" />
+							<img src="static/batter_hair.svg" id="hair" class="batter-features" />
+							<img src="static/batter_stache.svg" id="stache" class="batter-features" />
+							<img src="static/batter_marks.svg" id="marks" class="batter-features" />
+						</div>
+						<div id="batter-text">
+							<div id="btext-first-row" class="batter-stat-row">
+								<p id="batter-number" class="batter-stat"></p>
+								<p id="batter-name"></p>
+							</div>
+							<div id="btext-second-row" class="batter-stat-row">
+								<p id="batter-position" class="batter-stat"></p>
+								<p class="batter-stat">/</p>
+								<p id="batter-ba" class="batter-stat"></p>
+								<p class="batter-stat">/</p>
+								<p id="batter-height" class="batter-stat"></p>
+								<p class="batter-stat">/</p>
+								<p id="batter-weight" class="batter-stat"></p>
+							</div>
+						</div>
 					</div>
-					<p id="team-score-two" class="team-score"></p>
 				</div>
 			</div>
-	
-			<p id="batter-count" class="team-score"></p>
+			<!-- END - BATTER INFO - END -->
 		</div>
 		<!-- END - SCOREBOARD - END -->
 	
