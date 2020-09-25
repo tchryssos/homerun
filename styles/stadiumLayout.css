@@ -60,6 +60,18 @@
 	z-index: 2;
 }
 
+#ball:active {
+	border: none;
+	outline: none;
+	outline-style: none;
+}
+
+#ball:focus {
+	border: none;
+	outline: none;
+	outline-style: none;
+}
+
 #batter-box-wrapper {
 	position: absolute;
 	bottom: 0;

@@ -1,8 +1,3 @@
-@keyframes strobe {
-	from { opacity: 100%; }
-	to { opacity: 0%; }
-}
-
 #text-box {
 	position: absolute;
 	display: flex;
@@ -15,16 +10,10 @@
 .toggle-text {
 	display: none;
 	padding: 8px;
-	border: 5px solid red;
 	color: red;
 	font-size: 72px;
 	text-align: center;
 	font-weight: 600;
-	animation-name: strobe;
-	animation-duration: 0.25s;
-	animation-direction: alternate;
-	animation-timing-function: linear;
-	animation-iteration-count: infinite;
 }
 
 #game-over {
