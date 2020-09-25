@@ -6,6 +6,7 @@ import { timeout, getTargetFrameMod, addAndRemoveClass } from '/js/util'
 import {
 	ball, batterBox, homerunId, textBox, setSvg2,
 	setSvg3, setSvg1, strike, teamTwoScore, gameoverText,
+	batterCount,
 } from '/js/elements'
 import {
 	isAnimating, setIsAnimating, translateY, setTranslateY, scale,
@@ -65,7 +66,6 @@ export const homerun = () => {
 
 const toggleText = (childId, bool) => {
 	const el = document.getElementById(childId)
-	console.log(el, childId)
 	const bgColor = bool ? 'rgba(0, 0, 0, 0.7)' : 'transparent'
 	const elDisplay = bool ? 'block' : 'none'
 
@@ -141,6 +141,7 @@ export const runPitchAnimation = async () => {
 						strikeAudio.currentTime = 0
 					}, 2000)
 					setStrikeCount(strikeCount + 1)
+					batterCount.textContent = `${strikeCount}-0`
 				}
 			}
 		}, frameSpeed)

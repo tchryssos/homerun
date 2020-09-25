@@ -17,6 +17,7 @@ export const teamTwoText = document.getElementById('team-logo-text-two')
 export const teamTwoLogo = document.getElementById('team-logo-two')
 export const teamOneScore = document.getElementById('team-score-one')
 export const teamTwoScore = document.getElementById('team-score-two')
+export const batterCount = document.getElementById('batter-count')
 
 
 export const slidingInfo = document.getElementById('sliding-info')

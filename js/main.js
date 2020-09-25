@@ -5,7 +5,7 @@ import { runPitchAnimation, homerun } from '/js/animations'
 import {
 	batterBox, ball, pitcher, teamOneScore, teamTwoScore,
 	bat, teamOneText, teamOneLogo, teamTwoText, teamTwoLogo,
-	atBatText,
+	atBatText, batterCount,
 } from '/js/elements'
 import { teamNames } from '/js/constants'
 import { getRandomItem, getRandomBetween, getRandomColorString } from '/js/util'
@@ -42,6 +42,7 @@ teamOneScore.textContent = getRandomBetween(0, 20)
 const playerScore = getRandomBetween(0, 20)
 teamTwoScore.textContent = playerScore
 setCurrentScoreVal(playerScore)
+batterCount.textContent = '0-0'
 
 colorChange(pitcher)
 fetchNewPlayer(true)

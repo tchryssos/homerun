@@ -2,13 +2,18 @@
 	border: 2px solid white;
 }
 
-#scoreboard {
+#scoreboard-area {
 	position: absolute;
 	top: 0;
 	left: 0;
 	display: flex;
+	width: 100%;
+}
+
+#scoreboard {
 	background-color: black;
 	color: white;
+	display: flex;
 }
 
 .team-scoreboard {
@@ -46,5 +51,11 @@
 	color: red;
 }
 
-@media only screen and (min-width: 600px) {
+#batter-count {
+	height: 56px;
+	width: 56px;
+	border: 2px solid white;
+	background-color: black;
+	color: white;
+	margin-left: 8px;
 }
