@@ -29,7 +29,7 @@ export const fetchNewPlayer = (preventSlide) => {
 			const newBatter = buildPlayerName(getRandomItem(rosterTemplate))
 			batterName.textContent = newBatter
 			generatePlayerPortrait()
-			batterHeight.textContent = `${getRandomBetween(4, 9)}'${getRandomBetween(0, 12)}"`
+			batterHeight.textContent = `${getRandomBetween(3, 9)}'${getRandomBetween(0, 12)}"`
 			batterWeight.textContent = `${getRandomBetween(60, 400)} lbs`
 			batterPosition.textContent = getRandomItem(positions)
 			batterNumber.textContent = `#${getRandomBetween(0, 100)}`
