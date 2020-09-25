@@ -59,6 +59,8 @@ export const homerun = () => {
 			addAndRemoveClass(teamTwoScore, 'big-score', 4000)
 			teamTwoScore.textContent = `${newScore}`
 			fetchNewPlayer()
+			setStrikeCount(0)
+			batterCount.textContent = `${strikeCount}-0`
 		}, hitSpeed)
 		endPitchCycle()
 	}
@@ -123,6 +125,7 @@ export const runPitchAnimation = async () => {
 		await timeout(setSvg3, frameSpeed)
 		ballVisible()
 		setTimeout(() => {
+			ball.style.display = 'none'
 			setSvg1()
 			if (!isHit) {
 				if (strikeCount >= 2) {
